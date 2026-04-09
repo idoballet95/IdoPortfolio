@@ -36,7 +36,7 @@ export function Navigation() {
           className="text-3xl tracking-tight"
           style={{ fontWeight: 700 }}
         >
-          ido.
+          i.do
         </motion.button>
 
         <div className="flex items-center gap-8 lg:gap-12">

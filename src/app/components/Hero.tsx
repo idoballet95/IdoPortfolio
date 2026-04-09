@@ -5,15 +5,20 @@ export function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "#F5F5DC" }}
+      style={{ background: "#f3ecdf" }}
     >
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <img
-          src="https://images.unsplash.com/photo-1699586197060-fbc6d8b20ecd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw4fHxtaW5pbWFsaXN0JTIwYmVpZ2UlMjB3b3Jrc3BhY2UlMjBjcmVhdGl2ZSUyMHN0dWRpb3xlbnwxfHx8fDE3NzU3MTUwMDl8MA&ixlib=rb-4.1.0&q=80&w=1920"
-          alt="Minimalist workspace"
-          className="w-full h-full object-cover opacity-40"
-        />
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/5012083/pexels-photo-5012083.jpeg?auto=compress&cs=tinysrgb&w=1800"
+            alt="Sporty editorial background in beige tones"
+            className="h-full w-full object-cover object-center brightness-[0.94] contrast-[1.01] saturate-[0.86]"
+          />
+        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(247,241,230,0.70)_0%,rgba(239,229,214,0.46)_44%,rgba(232,221,206,0.60)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.42),transparent_34%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(243,236,223,0.18)_0%,rgba(243,236,223,0.08)_46%,rgba(243,236,223,0.26)_100%)]" />
       </div>
 
       {/* Content */}
@@ -24,14 +29,15 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
           <h1
-            className="mb-6 tracking-tight"
+            className="mb-6 tracking-tight text-[#1f1c18]"
             style={{
               fontSize: "clamp(4rem, 12vw, 9rem)",
               fontWeight: 800,
               lineHeight: 0.9,
+              textShadow: "0 8px 30px rgba(255, 255, 255, 0.28)",
             }}
           >
-            ido.
+            i.do
           </h1>
         </motion.div>
 
@@ -41,7 +47,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
           <p
-            className="tracking-[0.3em] opacity-80"
+            className="tracking-[0.3em] text-[#2d2924]/80"
             style={{
               fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
               fontWeight: 300,

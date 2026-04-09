@@ -156,7 +156,7 @@ export function Contact() {
           className="pt-8 border-t border-[#333333]/10"
         >
           <p className="opacity-50 text-sm" style={{ fontWeight: 300 }}>
-            © {new Date().getFullYear()} ido. All rights reserved.
+            © {new Date().getFullYear()} i.do All rights reserved.
           </p>
         </motion.div>
       </div>

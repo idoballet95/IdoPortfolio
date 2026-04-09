@@ -15,7 +15,7 @@ interface Pick {
 const picks: Pick[] = [
   {
     id: 1,
-    title: "Balletcore & Blokecore",
+    title: "Sports Fashion Picks",
     category: "Fashion Curation",
     description:
       "The intersection of delicate ballet aesthetics and rugged athletic wear creates a striking contrast that defines modern sports fashion.",
@@ -144,7 +144,7 @@ export function SportsPicks() {
                   style={{ fontWeight: 500 }}
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Read Review
+                  See Ido's Favorites
                 </motion.button>
               </div>
             </div>
