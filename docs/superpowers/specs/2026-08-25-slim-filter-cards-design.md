@@ -7,10 +7,10 @@ Make the AI Works and Sports Picks category filters feel lighter, more modern, a
 ## Design
 
 - Preserve the current five-column desktop layout, labels, counts, circular icon backgrounds, colors, selected black card, and filtering behavior.
-- Reduce card minimum height from 112px to approximately 88–92px.
-- Reduce card padding from 20px to 16px and internal gap from 20px to 14–16px.
-- Reduce circular icon containers from 56px to approximately 46–48px and icons from 24px to 20px.
-- Slightly reduce label size while retaining strong hierarchy and legibility.
+- Reduce card minimum height to approximately 72px.
+- Reduce card padding to 12px and internal gap to 12px.
+- Reduce circular icon containers to 40px and icons to 18px.
+- Reduce label size to 16–18px while retaining strong hierarchy and legibility.
 - Use a refined 16px corner radius and subtle neutral borders.
 - Apply identical dimensions to AI Works and Sports Picks.
 - Preserve responsive wrapping on smaller screens.

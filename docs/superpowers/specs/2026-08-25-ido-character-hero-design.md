@@ -22,6 +22,7 @@ Replace the current stock-photo Hero with a clean, modern 3D animation scene tha
 - Preserve generous negative space on the left for the website's `i.do` title.
 - Add subtle sports storytelling through a football, a small tactics board, and a trophy. Place one neat pair of authentic pale blush satin ballet practice slippers beside the football: flexible low-profile soles, ballet-specific rounded toes, crossed instep elastics, and delicate ribbon details. They must not resemble ordinary fashion flats or pointe shoes. Do not include football boots.
 - Remove the character's sneakers and show clean white ankle socks only.
+- Remove the pen holder and black desk block. Replace both with one clean transparent plastic cup of iced Americano with visible coffee and ice, no logo or text.
 - Use graphic circular and geometric forms rather than a literal sports stadium.
 
 ## Art Direction
@@ -41,6 +42,7 @@ Replace the current stock-photo Hero with a clean, modern 3D animation scene tha
 
 - Remove the `Explore Works / 작품 보기` button.
 - Keep the existing animated `i.do` heading and scroll indicator.
+- Add a thin responsive horizontal blank line immediately after `i.do` on the same visual baseline, evoking `i.do ________` as an open-ended fill-in-the-blank statement: “I can do anything.” The line contains no text and must remain delicate rather than decorative.
 - Replace the remote Pexels Hero image with a local optimized asset.
 - Add a descriptive alt text for the new scene.
 
