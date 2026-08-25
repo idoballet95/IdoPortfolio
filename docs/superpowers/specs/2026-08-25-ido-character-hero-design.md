@@ -46,9 +46,17 @@ Replace the current stock-photo Hero with a clean, modern 3D animation scene tha
 - Replace the remote Pexels Hero image with a local optimized asset.
 - Add a descriptive alt text for the new scene.
 
+## Image Quality
+
+- The approved v7 source is 1672×941 and appears soft when enlarged across 2K and Retina displays.
+- Create a non-destructive 2× master at 3344×1882 using high-quality Lanczos resampling with restrained sharpening.
+- Use the high-resolution optimized asset as the website source while preserving the original v7 file.
+- Avoid halos, oversharpened facial edges, color shifts, and excessive file weight.
+
 ## Verification
 
 - Visually inspect desktop and mobile crops.
 - Confirm the heading remains legible over the image.
 - Confirm no interface control overlaps the character's visible eyes or MacBook.
 - Run the production build.
+- Confirm the Hero remains crisp at wide desktop viewport sizes.
