@@ -22,6 +22,27 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "post-run-ramen",
+    title: "Post-Run Ramen",
+    eyebrow: "Athlete food vignette",
+    category: "Character",
+    year: "2026",
+    description: "After a two-hour run, Yoonjae turns the meal he could not stop thinking about into a late-night bowl of kimchi ramen.",
+    video: "/media/post-run-ramen.mp4",
+    poster: "/media/post-run-ramen.jpg",
+    duration: "00:30",
+    role: "AI direction, video edit and English–Korean bilingual subtitles",
+    tools: ["AI video", "FFmpeg", "Subtitle workflow"],
+    objective: "Extend Yoonjae's athlete identity into a compact post-training food story.",
+    process: [
+      "Locked the night-kitchen setting, athlete styling and food continuity across two generated clips.",
+      "Combined the cooking, plating and eating beats into a concise post-run story.",
+      "Matched every English and Korean subtitle cue to the spoken dialogue frame by frame.",
+    ],
+    challenge: "Two separately generated clips had to feel like one continuous cooking sequence while the character, wardrobe, kitchen and food remained coherent.",
+    outcome: "A 30-second character vignette connecting training, appetite and a satisfying food payoff.",
+  },
+  {
     slug: "golden-ball-chase",
     title: "Golden Ball — VR Chase",
     eyebrow: "Yoonjae VR fantasy film",
