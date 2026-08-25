@@ -15,8 +15,8 @@ Replace the current stock-photo Hero with a clean, modern 3D animation scene tha
 ## Scene
 
 - The character works at a modern desk behind an open silver MacBook. Place the laptop prominently in the foreground with its back facing the viewer, so no screen or editing interface is visible.
-- Use the MacBook to hide the lower face from immediately below the nose. Show both eyes fully, plus her eyebrows, forehead, and complete small nose looking over the laptop edge.
-- Treat the front-view face in the character sheet as the authoritative identity reference. Preserve its round eye shape, large brown iris size, gentle eyebrow curves, small rounded nose, broad forehead, soft cheek proportions, and friendly youthful expression. Avoid sharper eyes, narrower cheeks, or older facial proportions.
+- Raise the MacBook so it fully hides the nose, cheeks, mouth, chin, and lower face. Show only both eyes in full, the eyebrows, and the forehead above the laptop edge.
+- Treat the front-view face in the character sheet as the authoritative identity reference. Preserve its very round eye shape, large brown iris size, eye spacing, gentle eyebrow curves, broad youthful forehead, and innocent expression. Avoid sharper eyes, narrower eye spacing, visible cheek contours, or older facial proportions.
 - Place the character and workstation primarily on the right side.
 - Preserve generous negative space on the left for the website's `i.do` title.
 - Add subtle sports storytelling through a football, a small tactics board, and a trophy. Place one neat pair of authentic pale blush satin ballet practice slippers beside the football: flexible low-profile soles, ballet-specific rounded toes, crossed instep elastics, and delicate ribbon details. They must not resemble ordinary fashion flats or pointe shoes. Do not include football boots.
