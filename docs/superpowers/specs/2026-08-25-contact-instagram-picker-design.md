@@ -6,7 +6,7 @@ Replace the inactive subscription form with direct collaboration contact paths a
 
 ## Content
 
-- Heading remains English in both language modes: `Get in Touch to Collaborate`.
+- Heading remains English in both language modes: `Open to Collaborations`.
 - English description: `Interesting collaborations and projects are always welcome.`
 - Korean description: `재미있는 협업과 프로젝트는 언제나 환영입니다.`
 

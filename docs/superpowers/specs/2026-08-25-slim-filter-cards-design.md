@@ -14,6 +14,12 @@ Make the AI Works and Sports Picks category filters feel lighter, more modern, a
 - Use a refined 16px corner radius and subtle neutral borders.
 - Apply identical dimensions to AI Works and Sports Picks.
 - Preserve responsive wrapping on smaller screens.
+- Give AI Works the same category-color treatment used by Sports Picks:
+  - All: purple grid.
+  - Ads: coral clapperboard.
+  - Yoonjae: sky-blue character icon.
+  - Experiments: lime flask.
+- Use colored Lucide line icons rather than platform-dependent emoji glyphs.
 
 ## Verification
 
