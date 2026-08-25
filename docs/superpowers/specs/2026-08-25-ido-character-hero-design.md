@@ -7,8 +7,9 @@ Replace the current stock-photo Hero with a clean, modern 3D animation scene tha
 ## Character
 
 - Use `/Users/irenedo/Desktop/Characters/IDo animation/ido character sheet.png` as the identity reference.
-- Preserve the character's youthful childlike proportions, recognizable face, large brown eyes, and brown high ponytail. Do not age her into an adult.
-- Keep the headband clearly pink but thinner and more understated than before. Make the ponytail hair tie black.
+- Preserve the character's youthful childlike proportions and match the front-view character-sheet face exactly. Do not age her into an adult or reinterpret the visible eye area.
+- Keep the thin pink headband unchanged.
+- Replace the high ponytail with one neat French braid beginning at the crown and continuing down the back. Leave only a short loose tail at the end of the braid and secure it with a black hair tie.
 - Dress her in a modern black Nike tracksuit: a black track jacket and matching pants, restrained white piping, and one small white Swoosh on the jacket.
 - Keep the polished stylized 3D animation rendering of the reference sheet.
 
