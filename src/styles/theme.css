@@ -2,17 +2,17 @@
 
 :root {
   --font-size: 16px;
-  --background: #F5F5DC;
-  --foreground: #333333;
+  --background: #FFFFFF;
+  --foreground: #111111;
   --card: #FFFFFF;
   --card-foreground: #333333;
   --popover: #FFFFFF;
   --popover-foreground: #333333;
   --primary: #333333;
-  --primary-foreground: #F5F5DC;
-  --secondary: #E8E8D0;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F4F4F4;
   --secondary-foreground: #333333;
-  --muted: #E8E8D0;
+  --muted: #F4F4F4;
   --muted-foreground: #666666;
   --accent: #FFFFFF;
   --accent-foreground: #333333;
@@ -31,10 +31,10 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 1rem;
-  --sidebar: #F5F5DC;
+  --sidebar: #FFFFFF;
   --sidebar-foreground: #333333;
   --sidebar-primary: #333333;
-  --sidebar-primary-foreground: #F5F5DC;
+  --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #FFFFFF;
   --sidebar-accent-foreground: #333333;
   --sidebar-border: rgba(51, 51, 51, 0.1);
@@ -122,11 +122,12 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Arial', 'Apple SD Gothic Neo', sans-serif;
   }
 
   body {
     @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
   }
 
   /**
@@ -136,6 +137,7 @@
 
   html {
     font-size: var(--font-size);
+    scroll-behavior: smooth;
   }
 
   h1 {
@@ -179,4 +181,19 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: #333333;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }

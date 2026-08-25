@@ -1,0 +1,230 @@
+export type WorkCategory = "Commercial" | "Character" | "Sports" | "Story";
+
+export interface PortfolioWork {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  category: WorkCategory;
+  year: string;
+  description: string;
+  video: string;
+  poster: string;
+  duration: string;
+  role: string;
+  tools: string[];
+  featured?: boolean;
+  objective: string;
+  process: string[];
+  challenge: string;
+  outcome: string;
+  promptFile?: string;
+}
+
+export const works: PortfolioWork[] = [
+  {
+    slug: "golden-ball-chase",
+    title: "Golden Ball — VR Chase",
+    eyebrow: "Yoonjae VR fantasy film",
+    category: "Character",
+    year: "2026",
+    description: "윤재가 VR 속 안개 낀 숲을 달리며 황금공을 쫓고, 다시 현실의 방으로 돌아오는 이중자막 판타지 필름.",
+    video: "/media/golden-ball-chase.mp4",
+    poster: "/media/golden-ball-chase.jpg",
+    duration: "00:15",
+    role: "AI direction, VR narrative, character continuity, edit and bilingual subtitles",
+    tools: ["AI video", "CapCut", "VR storytelling", "Subtitle workflow"],
+    featured: true,
+    objective: "윤재가 VR 세계에서 황금공을 쫓는 경험을 현실 복귀 반전까지 담은 15초 서사로 완성한다.",
+    process: [
+      "안개 낀 숲, 달리는 윤재와 황금공의 이동 방향을 하나의 추격 장면으로 구성했다.",
+      "윤재의 얼굴·헤어·붉은 상의가 빠른 움직임 속에서도 유지되는 버전을 선별했다.",
+      "마지막에 VR 헤드셋을 쓴 현실의 윤재로 전환하고 영어·한국어 이중자막과 사운드를 완성했다.",
+    ],
+    challenge: "황금공의 위치와 크기가 계속 읽히면서도 윤재의 달리기 동작과 캐릭터 정체성이 흔들리지 않아야 했다.",
+    outcome: "15초 안에 발견, 추격, 포획을 완결한 윤재 캐릭터 판타지 필름.",
+  },
+  {
+    slug: "apocalypse-football",
+    title: "The Last Match",
+    eyebrow: "Apocalyptic football experiment",
+    category: "Story",
+    year: "2026",
+    description: "여자 선수와 남자 선수가 폭풍과 거대한 파도가 덮치는 축구장에서 마지막 경기를 이어가는 재난 세계관 실험.",
+    video: "/media/apocalypse-football.mp4",
+    poster: "/media/apocalypse-football.jpg",
+    duration: "00:18",
+    role: "Concept, AI production, edit and sound",
+    tools: ["AI video", "CapCut", "Sound design"],
+    objective: "익숙한 축구 경기의 긴장감을 지구멸망 규모의 재난 이미지와 결합한다.",
+    process: [
+      "두 선수와 심판이 등장하는 경기 상황을 설정했다.",
+      "폭풍우, 거대한 파도와 경기장의 공간 연속성을 중심으로 생성 장면을 선별했다.",
+      "CapCut에서 대치와 재난의 상승감을 17.5초 안에 압축했다.",
+    ],
+    challenge: "인물 간 대치가 거대한 재난 배경에 묻히지 않으면서도 한 장면처럼 연결되어야 했다.",
+    outcome: "스포츠 드라마와 아포칼립스 이미지를 결합한 짧은 콘셉트 필름.",
+  },
+  {
+    slug: "pink-mercurial-rivalry",
+    title: "Only Pink in Sight",
+    eyebrow: "Nike Mercurial rivalry ad",
+    category: "Commercial",
+    year: "2026",
+    description: "윤재가 핑크 축구화를 놀리는 상대 선수에게 플레이로 답하는 2인 스포츠 광고.",
+    video: "/media/pink-mercurial.mp4",
+    poster: "/media/pink-mercurial.jpg",
+    duration: "00:40",
+    role: "Concept, AI production, character direction, edit and subtitles",
+    tools: ["AI video", "CapCut", "Sound design"],
+    featured: true,
+    objective: "핑크색 축구화를 둘러싼 짧은 도발을 두 선수의 라이벌 구도와 제품 퍼포먼스로 전환한다.",
+    process: [
+      "윤재와 상대 선수의 외형·유니폼·야간 경기장 공간을 고정했다.",
+      "도발, 경기 반전, 핑크 축구화 제품 공개의 순서로 장면을 구성했다.",
+      "CapCut에서 대사 자막, 경기 사운드와 Nike 엔드카드를 포함한 최종본을 완성했다.",
+    ],
+    challenge: "빠른 경기 장면에서도 두 선수의 얼굴과 핑크 축구화가 동일하게 인식되어야 했다.",
+    outcome: "2인 캐릭터 연기와 제품 반전을 결합한 39.67초 완성 광고.",
+  },
+  {
+    slug: "nike-mercurial",
+    title: "Nike Mercurial",
+    eyebrow: "AI action commercial",
+    category: "Commercial",
+    year: "2026",
+    description: "A night-time football chase built around speed, touch and a contested pair of boots.",
+    video: "/media/nike-mercurial.mp4",
+    poster: "/media/nike-mercurial.jpg",
+    duration: "00:40",
+    role: "Creative direction, AI production, edit and bilingual subtitles",
+    tools: ["AI video", "CapCut", "Subtitle workflow"],
+    featured: true,
+    objective: "Turn a performance boot into the dramatic engine of a short sports film rather than a conventional product demo.",
+    process: [
+      "Designed the night pitch, chase and product-reveal beats.",
+      "Generated and selected shots for continuity of character, boot and lighting.",
+      "Built the final rhythm, sound and English–Korean subtitle treatment in CapCut.",
+    ],
+    challenge: "Keeping the boot legible while the action stayed fast and cinematic required repeated shot selection and tighter continuity between cuts.",
+    outcome: "A complete bilingual spec commercial that demonstrates action direction, product storytelling and post-production.",
+    promptFile: "/prompts/nike-storyboard.md",
+  },
+  {
+    slug: "world-cup-product-collection",
+    title: "2026 World Cup Edition",
+    eyebrow: "Product collection film",
+    category: "Commercial",
+    year: "2026",
+    description: "Three monochrome football objects move from prototype-white to a finished tournament collection.",
+    video: "/media/world-cup-collection.mp4",
+    poster: "/media/world-cup-collection.jpg",
+    duration: "00:41",
+    role: "Concept, AI product animation and edit",
+    tools: ["Kling", "Hailuo", "CapCut"],
+    featured: true,
+    objective: "Present a boot, bottle and headband as one coherent premium collection.",
+    process: [
+      "Established a white prototype stage shared by all three products.",
+      "Animated detail moments including the tweezer-applied headband pin and football-shaped bottle cap.",
+      "Edited individual generations into a single collection reveal.",
+    ],
+    challenge: "Separate generations needed consistent materials, scale and lighting to read as one campaign.",
+    outcome: "A 41-second product film with a clear collection reveal and recognizable object details.",
+  },
+  {
+    slug: "gwangjang-market-vlog",
+    title: "Gwangjang Market Run",
+    eyebrow: "Character vlog",
+    category: "Character",
+    year: "2026",
+    description: "Yoonjae moves through Gwangjang Market in a fast, sweaty post-training food vlog.",
+    video: "/media/gwangjang-market.mp4",
+    poster: "/media/gwangjang-market.jpg",
+    duration: "00:40",
+    role: "Character direction, AI video, voice and bilingual edit",
+    tools: ["AI video", "Voice", "CapCut"],
+    featured: true,
+    objective: "Make a recurring AI athlete feel spontaneous and present inside a recognizable Seoul location.",
+    process: ["Locked Yoonjae's face and training wardrobe.", "Built a market route from selfie-style shots.", "Matched narration, ambience and bilingual captions."],
+    challenge: "The handheld vlog language had to feel casual without losing character identity between shots.",
+    outcome: "A character-led travel vignette that expands Yoonjae beyond sports advertising.",
+    promptFile: "/prompts/gwangjang-final.md",
+  },
+  {
+    slug: "wifi-blackout",
+    title: "The Match Went Dark",
+    eyebrow: "Short-form story",
+    category: "Story",
+    year: "2026",
+    description: "A football fan's biggest moment freezes with the screen, turning a Wi-Fi failure into a compact character story.",
+    video: "/media/wifi-blackout.mp4",
+    poster: "/media/wifi-blackout.jpg",
+    duration: "00:23",
+    role: "Story, AI direction, edit and bilingual subtitles",
+    tools: ["AI video", "CapCut", "Sound design"],
+    objective: "Tell a recognizable sports-fan story with one room, one character and a precise comic interruption.",
+    process: ["Planned the match build-up and blackout turn.", "Maintained the blue night-room lighting across generated shots.", "Used sound and subtitles to land the interruption."],
+    challenge: "The screen action and Yoonjae's reaction needed to align clearly within a very short runtime.",
+    outcome: "A concise narrative sample suitable for telecom, streaming or sports-platform advertising.",
+    promptFile: "/prompts/wifi-final.md",
+  },
+  {
+    slug: "rainy-track-film",
+    title: "Do 7 — Rain Training",
+    eyebrow: "Athlete character film",
+    category: "Sports",
+    year: "2026",
+    description: "A rain-soaked training film that treats repetition and solitude as the athlete's real opponent.",
+    video: "/media/rain-training.mp4",
+    poster: "/media/rain-training.jpg",
+    duration: "00:46",
+    role: "Creative direction, character continuity and edit",
+    tools: ["AI video", "CapCut", "Character system"],
+    objective: "Build a cinematic identity film around Yoonjae's number 7 shirt and solitary training ritual.",
+    process: ["Defined a wet-track visual system.", "Selected running, recovery and hero shots around the same athlete identity.", "Shaped the final pace and atmosphere in CapCut."],
+    challenge: "Rain, wet fabric and fast body motion made identity and wardrobe continuity especially fragile.",
+    outcome: "A longer-form character film that positions Yoonjae as a repeatable sports IP.",
+  },
+  {
+    slug: "penalty-kick-ad",
+    title: "One Kick Left",
+    eyebrow: "15-second sports spot",
+    category: "Commercial",
+    year: "2026",
+    description: "A compact penalty sequence that turns match pressure into a clean recovery-product reveal.",
+    video: "/media/penalty-kick.mp4",
+    poster: "/media/penalty-kick.jpg",
+    duration: "00:15",
+    role: "Concept, AI generation, voice, sound and final assembly",
+    tools: ["AI video", "Voice", "Sound design"],
+    objective: "Deliver a complete sports-ad arc inside a strict 15-second format.",
+    process: ["Blocked the spot into pressure, strike and product beats.", "Generated stadium and product shots from a locked character reference.", "Assembled voice, effects and final mix."],
+    challenge: "The product had to arrive clearly without interrupting the momentum of the penalty sequence.",
+    outcome: "A short, portfolio-ready spec spot with a legible commercial structure.",
+    promptFile: "/prompts/penalty-final.md",
+  },
+  {
+    slug: "forest-run",
+    title: "Off the Mark",
+    eyebrow: "Character experiment",
+    category: "Character",
+    year: "2026",
+    description: "A later Yoonjae experiment exploring physical comedy, outdoor movement and bilingual delivery.",
+    video: "/media/forest-run.mp4",
+    poster: "/media/forest-run.jpg",
+    duration: "00:20",
+    role: "AI direction, edit and bilingual subtitles",
+    tools: ["AI video", "CapCut", "Subtitle workflow"],
+    objective: "Test Yoonjae in a lighter outdoor story while preserving the established character system.",
+    process: ["Extended the existing character reference into an outdoor setting.", "Selected the most readable physical beats.", "Finished the piece with bilingual subtitles."],
+    challenge: "Fast outdoor motion pushed character consistency and spatial continuity.",
+    outcome: "A compact character experiment that broadens the tone of the Yoonjae series.",
+    promptFile: "/prompts/forest-final.txt",
+  },
+];
+
+export const workCategories = ["All", "Commercial", "Character", "Sports", "Story"] as const;
+
+export function getWork(slug: string) {
+  return works.find((work) => work.slug === slug);
+}

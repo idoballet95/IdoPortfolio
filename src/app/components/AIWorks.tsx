@@ -1,155 +1,68 @@
 import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-
-interface WorkItem {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  tags: string[];
-}
-
-const works: WorkItem[] = [
-  {
-    id: 1,
-    title: "Not Now Please",
-    category: "AI Video",
-    description: "YouTube series exploring modern digital interactions",
-    image: "https://images.unsplash.com/photo-1655988940601-7702d8685f95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwYmVpZ2UlMjB3b3Jrc3BhY2UlMjBjcmVhdGl2ZSUyMHN0dWRpb3xlbnwxfHx8fDE3NzU3MTUwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["AI Video", "YouTube"],
-  },
-  {
-    id: 2,
-    title: "John",
-    category: "3D Design",
-    description: "3D character rendering with personality",
-    image: "https://images.unsplash.com/photo-1772371272174-392cf9cfabae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHwzRCUyMGNoYXJhY3RlciUyMHJlbmRlciUyMGFydHxlbnwxfHx8fDE3NzU3MTUwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["3D Design", "Character"],
-  },
-  {
-    id: 3,
-    title: "Supernatural Soccer Girl",
-    category: "Screenplay",
-    description: "Concept art and screenplay development",
-    image: "https://images.unsplash.com/photo-1735956929927-511f5f05ddaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBmb290YmFsbCUyMGZhc2hpb24lMjBzcG9ydHN8ZW58MXx8fHwxNzc1NzE1MDA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Screenplay", "Concept Art"],
-  },
-  {
-    id: 4,
-    title: "Digital Portraits",
-    category: "AI Art",
-    description: "AI-generated character studies",
-    image: "https://images.unsplash.com/photo-1669605140640-d5908ffe8524?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHwzRCUyMGNoYXJhY3RlciUyMHJlbmRlciUyMGFydHxlbnwxfHx8fDE3NzU3MTUwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["AI Art", "Portrait"],
-  },
-  {
-    id: 5,
-    title: "Abstract Forms",
-    category: "3D Design",
-    description: "Minimalist 3D compositions",
-    image: "https://images.unsplash.com/photo-1742197143486-d6c7d146fbc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHwzRCUyMGNoYXJhY3RlciUyMHJlbmRlciUyMGFydHxlbnwxfHx8fDE3NzU3MTUwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["3D Design", "Abstract"],
-  },
-  {
-    id: 6,
-    title: "Character Studies",
-    category: "3D Design",
-    description: "Expressive character explorations",
-    image: "https://images.unsplash.com/photo-1650229785916-2cbfe89c72c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHwzRCUyMGNoYXJhY3RlciUyMHJlbmRlciUyMGFydHxlbnwxfHx8fDE3NzU3MTUwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["3D Design", "Character"],
-  },
-];
+import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router";
+import { works } from "../data/works";
+import { getWorkCopy } from "../data/work-copy";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function AIWorks() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const navigate = useNavigate();
+  const featured = works.filter((work) => work.featured);
+  const { language } = useLanguage();
 
   return (
-    <section
-      id="ai-works"
-      ref={sectionRef}
-      className="py-24 lg:py-32 px-8 lg:px-16"
-      style={{ background: "#F5F5DC" }}
-    >
-      <div className="max-w-[1400px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h2
-            className="mb-4 tracking-tight"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4rem)", fontWeight: 700 }}
-          >
-            AI Works
-          </h2>
-          <p className="opacity-70 max-w-2xl" style={{ fontSize: "1.125rem", fontWeight: 300 }}>
-            Creative explorations in AI video, 3D design, and digital storytelling
-          </p>
-        </motion.div>
+    <section id="ai-works" className="bg-white px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="mb-12 flex flex-col gap-8 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-[#333333]/55">Selected work · 2026</p>
+            <h2 className="max-w-4xl text-[clamp(3.25rem,8vw,7.5rem)] font-semibold leading-[0.82] tracking-[-0.065em]">
+              AI Works
+            </h2>
+          </div>
+          <button onClick={() => navigate("/work")} className="group inline-flex w-fit items-center gap-3 border-b border-[#333333] pb-2 text-sm font-semibold tracking-wide focus-visible:outline-2 focus-visible:outline-offset-4">
+            {language === "en" ? `Explore all ${works.length} projects` : `전체 ${works.length}개 프로젝트 보기`}
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </button>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          {works.map((work, index) => (
-            <motion.div
-              key={work.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="group cursor-pointer"
+        <div className="grid gap-5 lg:grid-cols-12">
+          {featured.map((work, index) => (
+            <motion.article
+              key={work.slug}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
+              className={`group cursor-pointer ${index === 0 ? "lg:col-span-7" : "lg:col-span-5"}`}
+              onClick={() => navigate(`/work/${work.slug}`)}
+              onKeyDown={(event) => event.key === "Enter" && navigate(`/work/${work.slug}`)}
+              role="link"
+              tabIndex={0}
             >
-              <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[4/5]">
-                <motion.img
-                  src={work.image}
-                  alt={work.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
+              <div className={`relative overflow-hidden bg-[#DDDCC5] ${index === 0 ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+                <video
+                  src={work.video}
+                  poster={work.poster}
+                  muted loop playsInline preload="metadata"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  onMouseEnter={(event) => event.currentTarget.play().catch(() => undefined)}
+                  onMouseLeave={(event) => { event.currentTarget.pause(); event.currentTarget.currentTime = 0; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#333333]/80 via-[#333333]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex flex-wrap gap-2">
-                  {work.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-[#FFFFFF] rounded-full text-xs tracking-wide"
-                      style={{ fontWeight: 500 }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#171712]/55 via-transparent to-transparent opacity-70" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-white">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em]">{work.eyebrow}</span>
+                  <span className="font-mono text-[11px] tabular-nums">{work.duration}</span>
                 </div>
-
-                <h3 className="tracking-tight" style={{ fontSize: "1.5rem", fontWeight: 600 }}>
-                  {work.title}
-                </h3>
-
-                <p className="opacity-70" style={{ fontSize: "0.9375rem", fontWeight: 300 }}>
-                  {work.description}
-                </p>
               </div>
-            </motion.div>
+              <div className="flex items-start justify-between gap-6 py-5">
+                <div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.035em] lg:text-3xl">{work.title}</h3>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#333333]/65">{getWorkCopy(work.slug, language)?.description ?? work.description}</p>
+                </div>
+                <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>

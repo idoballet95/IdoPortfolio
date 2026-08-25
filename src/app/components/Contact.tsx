@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Youtube, Instagram, FileText, Send } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function Contact() {
+  const { language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,7 +62,7 @@ export function Contact() {
       id="contact"
       ref={sectionRef}
       className="py-24 lg:py-32 px-8 lg:px-16"
-      style={{ background: "#F5F5DC" }}
+      style={{ background: "#FFFFFF" }}
     >
       <div className="max-w-[800px] mx-auto text-center">
         <motion.div
@@ -76,7 +78,7 @@ export function Contact() {
             Get in Touch
           </h2>
           <p className="opacity-70 max-w-xl mx-auto" style={{ fontSize: "1.125rem", fontWeight: 300 }}>
-            Stay updated with the latest picks and creative work
+            {language === "en" ? "Stay updated with the latest picks and creative work" : "새로운 추천과 크리에이티브 작업 소식을 받아보세요"}
           </p>
         </motion.div>
 
@@ -93,7 +95,7 @@ export function Contact() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder={language === "en" ? "Enter your email" : "이메일을 입력하세요"}
               required
               className="flex-1 px-6 py-4 bg-[#FFFFFF] rounded-2xl border-2 border-transparent focus:border-[#333333] outline-none transition-all"
               style={{ fontWeight: 400 }}
@@ -114,7 +116,7 @@ export function Contact() {
               animate={{ opacity: 1, y: 0 }}
               className="mt-4 text-sm opacity-70"
             >
-              Thank you for subscribing!
+              {language === "en" ? "Thank you for subscribing!" : "구독해 주셔서 감사합니다!"}
             </motion.p>
           )}
         </motion.form>
