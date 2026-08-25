@@ -7,7 +7,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 export function AIWorks() {
   const navigate = useNavigate();
-  const featured = works.filter((work) => work.featured);
+  const featured = works.filter((work) => work.featured).slice(0, 4);
   const { language } = useLanguage();
 
   return (

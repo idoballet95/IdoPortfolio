@@ -11,8 +11,10 @@ export function Hero() {
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0">
           <img
-            src="/media/ido-hero-studio-v6.png"
-            alt="i.do character with a French braid peeking over a MacBook beside football and ballet props"
+            src="/media/ido-hero-studio-v7.png"
+            srcSet="/media/ido-hero-studio-v7.png 1672w, /media/ido-hero-studio-v7-2x.png 3344w"
+            sizes="100vw"
+            alt="i.do character with a French braid working behind a MacBook with an iced Americano"
             className="h-full w-full object-cover object-[72%_center] sm:object-[68%_center] lg:object-center"
           />
         </div>
@@ -27,17 +29,20 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <h1
-            className="mb-6 tracking-tight text-[#1f1c18]"
-            style={{
-              fontSize: "clamp(4rem, 11vw, 9rem)",
-              fontWeight: 800,
-              lineHeight: 0.9,
-              textShadow: "0 8px 30px rgba(255, 255, 255, 0.38)",
-            }}
-          >
-            i.do
-          </h1>
+          <div className="flex items-end gap-5 sm:gap-8">
+            <h1
+              className="mb-6 shrink-0 tracking-tight text-[#1f1c18]"
+              style={{
+                fontSize: "clamp(4rem, 11vw, 9rem)",
+                fontWeight: 800,
+                lineHeight: 0.9,
+                textShadow: "0 8px 30px rgba(255, 255, 255, 0.38)",
+              }}
+            >
+              i.do
+            </h1>
+            <span aria-hidden="true" className="mb-[1.9rem] h-px w-[clamp(5rem,18vw,20rem)] bg-[#1f1c18] sm:mb-[2.35rem] lg:mb-[2.75rem]" />
+          </div>
         </motion.div>
 
       </div>
