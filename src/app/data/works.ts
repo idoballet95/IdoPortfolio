@@ -22,6 +22,28 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "gia-pottery-class",
+    title: "One Bowl and Out",
+    eyebrow: "Gia pottery-class vlog",
+    category: "Character",
+    year: "2026",
+    description: "Gia finishes one bowl in a pottery class, then slips away from a second attempt because football starts in twenty minutes.",
+    video: "/media/gia-pottery-class.mp4",
+    poster: "/media/gia-pottery-class.jpg",
+    duration: "00:40",
+    role: "AI direction, character continuity, edit and English–Korean bilingual subtitles",
+    tools: ["Higgsfield", "Seedance 2.5", "FFmpeg", "Whisper DTW"],
+    objective: "Reveal Gia's sports-first personality through a casual pottery-class comedy rather than a conventional sports-action scene.",
+    process: [
+      "Locked Gia, the teacher, two students and the pottery studio with explicit presence and blocking constraints.",
+      "Extended the first generation from its exact end state and joined both selected clips in narrative order.",
+      "Aligned nine English–Korean subtitle cards with DTW timing and frame-boundary checks.",
+    ],
+    challenge: "Two generated clips had to preserve four people, room geography, props and Gia's clay-covered appearance across the extension join.",
+    outcome: "A 40-second character vlog that connects Gia's everyday comedy with her athlete identity.",
+    promptFile: "/prompts/gia-pottery-class.md",
+  },
+  {
     slug: "post-run-ramen",
     title: "Post-Run Ramen",
     eyebrow: "Athlete food vignette",
