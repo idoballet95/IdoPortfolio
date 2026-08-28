@@ -2,12 +2,10 @@
 
 These are the exact prompt texts retrieved from the Higgsfield generation history for the two selected GIA renders.
 
-## Clip 1
-
-- Model: Seedance 2.5
-- Render: `hf_20260827_173006_e87c0964-6377-44e4-905c-cd2d285f7446.mp4`
-
 ```text
+CLIP 1 — SEEDANCE 2.5
+RENDER: hf_20260827_173006_e87c0964-6377-44e4-905c-cd2d285f7446.mp4
+
 The subject is @gia-pottery. Her face and hairstyle must match @gia-pottery exactly and must never morph into another person (clay on hands and face is the only addition allowed). Wardrobe: [washed cream oversized short-sleeve t-shirt, indigo denim cross-back apron, black nylon training shorts, white crew socks, black slide sandals, dark brown hair in a low messy bun with a black claw clip]. Ignore the sheet's grey backdrop, panel layout, poses and corner text. @pottery-studio defines the room only — its layout, surfaces, shelves and light; take no person from it. Facial features stay clearly defined even where the image is rough. 16:9 horizontal.
 
 
@@ -54,14 +52,12 @@ Camera: loose cuts of about 1 to 1.5 seconds. Old iPhone held horizontally in la
 Sound: no BGM. No sound effects. Never add a swoosh or whoosh transition sound when the camera moves or the scene changes. The low motor hum of three wheels running at once, wet clay squelching and slapping under Gia's palms, water dripping back into the plastic tub, her heel tapping the wheel frame, the wooden rib scraping once against the turning wall, the wire pulling under the foot of the bowl, the bowl setting down on the board, the teacher's low indistinct coaching voice from across the room, distant traffic through the window. Close, slightly muffled voice on Gia's line.
 
 Style: unretouched low-quality phone video look. No colour grading, no film look, no cinematic look, no beauty filter, no CG texture. No fisheye, no ultra-wide 0.5x, no action-cam look, no barrel distortion, no vignetting, no black lens rounding at the frame edges — a flat undistorted standard field of view filling all four corners. Keep real skin texture: pores, flyaway hairs, oily sheen. Do not merge cuts or skip scenes. No on-screen text, no captions, no watermark.
-```
 
-## Clip 2 — Extend
+--------------------------------------------------------------------------------
 
-- Model: Seedance 2.5 Extend
-- Render: `hf_20260827_173810_fc5ae29a-1a80-4b36-9d1d-986da93e9eb6.mp4`
+CLIP 2 — SEEDANCE 2.5 EXTEND
+RENDER: hf_20260827_173810_fc5ae29a-1a80-4b36-9d1d-986da93e9eb6.mp4
 
-```text
 Extend the source video forward. The first frame of the extension continues directly from its last frame: the phone still propped crooked on the shelf filming @gia-pottery sitting back at her wheel in the right half of the frame, the finished bowl on the wooden board to her right, her wheel head empty and wet, one grey clay streak on her face, two grey smears on the lens, the black soccer bag on the floor by the door behind her, both other students still working at their own wheels in the left background, and the teacher a few steps away in the midground on the screen-left side already walking toward Gia. Hold every person's position and facing, the prop positions, the room layout, the camera position, the light level and the noise and compression of the source across the join. Motion connects smoothly, no stiff cut, no object or person appearing out of thin air.
 
 
