@@ -24,6 +24,30 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "bose-quietcomfort",
+    title: "Only What You Want",
+    eyebrow: "Bose QuietComfort commercial",
+    category: "Commercial",
+    galleryCategory: "Ads",
+    year: "2026",
+    description: "A footballer leaves a roaring stadium, switches on noise cancelling and flies home on her back through Seoul traffic without one flicker of expression.",
+    video: "/media/bose-quietcomfort.mp4",
+    poster: "/media/bose-quietcomfort.jpg",
+    duration: "00:21",
+    role: "Concept, AI direction, sound design and edit",
+    tools: ["Higgsfield", "Seedance 2.5", "GPT Image 2", "Suno", "FFmpeg"],
+    featured: true,
+    objective: "Make the product the reason for the deadpan, so the silence becomes the advertisement instead of a backdrop for it.",
+    process: [
+      "Moved the launch point of a one-take flight concept to the top row of a packed stadium, so the loudest workplace in sport became the reason the product exists.",
+      "Locked Gia's face, an all-black post-match tunnel-fit wardrobe and the official product photograph as reference elements, with a colour lock keeping the headphones the only saturated object in frame.",
+      "Rebuilt the soundtrack in post as a 40 dB drop from stadium roar to silence, and made the music diegetic so it cuts out with the silence when she switches the headphones off.",
+    ],
+    challenge: "The generated audio leaked traffic straight through the silent section and never produced the noise blast, so the entire mechanism had to be rebuilt from the take's own sound with gain automation.",
+    outcome: "A 21-second spec commercial whose soundtrack belongs to the product: turn the headphones off and the music dies with the silence.",
+    promptFile: "/prompts/bose-quietcomfort.md",
+  },
+  {
     slug: "gia-pottery-class",
     title: "One Bowl and Out",
     eyebrow: "Gia pottery-class vlog",
