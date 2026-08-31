@@ -1,10 +1,12 @@
 export type WorkCategory = "Commercial" | "Character" | "Sports" | "Story";
+export type GalleryCategory = "Ads" | "Yoonjae & Gia" | "Experiments";
 
 export interface PortfolioWork {
   slug: string;
   title: string;
   eyebrow: string;
   category: WorkCategory;
+  galleryCategory: GalleryCategory;
   year: string;
   description: string;
   video: string;
@@ -26,6 +28,7 @@ export const works: PortfolioWork[] = [
     title: "One Bowl and Out",
     eyebrow: "Gia pottery-class vlog",
     category: "Character",
+    galleryCategory: "Experiments",
     year: "2026",
     description: "Gia finishes one bowl in a pottery class, then slips away from a second attempt because football starts in twenty minutes.",
     video: "/media/gia-pottery-class.mp4",
@@ -48,6 +51,7 @@ export const works: PortfolioWork[] = [
     title: "Post-Run Ramen",
     eyebrow: "Athlete food vignette",
     category: "Character",
+    galleryCategory: "Yoonjae & Gia",
     year: "2026",
     description: "After a two-hour run, Yoonjae turns the meal he could not stop thinking about into a late-night bowl of kimchi ramen.",
     video: "/media/post-run-ramen.mp4",
@@ -69,6 +73,7 @@ export const works: PortfolioWork[] = [
     title: "Golden Ball — VR Chase",
     eyebrow: "Yoonjae VR fantasy film",
     category: "Character",
+    galleryCategory: "Yoonjae & Gia",
     year: "2026",
     description: "윤재가 VR 속 안개 낀 숲을 달리며 황금공을 쫓고, 다시 현실의 방으로 돌아오는 이중자막 판타지 필름.",
     video: "/media/golden-ball-chase.mp4",
@@ -91,6 +96,7 @@ export const works: PortfolioWork[] = [
     title: "The Last Match",
     eyebrow: "Apocalyptic football experiment",
     category: "Story",
+    galleryCategory: "Experiments",
     year: "2026",
     description: "여자 선수와 남자 선수가 폭풍과 거대한 파도가 덮치는 축구장에서 마지막 경기를 이어가는 재난 세계관 실험.",
     video: "/media/apocalypse-football.mp4",
@@ -112,6 +118,7 @@ export const works: PortfolioWork[] = [
     title: "Only Pink in Sight",
     eyebrow: "Nike Mercurial rivalry ad",
     category: "Commercial",
+    galleryCategory: "Ads",
     year: "2026",
     description: "윤재가 핑크 축구화를 놀리는 상대 선수에게 플레이로 답하는 2인 스포츠 광고.",
     video: "/media/pink-mercurial.mp4",
@@ -134,6 +141,7 @@ export const works: PortfolioWork[] = [
     title: "Nike Mercurial",
     eyebrow: "AI action commercial",
     category: "Commercial",
+    galleryCategory: "Ads",
     year: "2026",
     description: "A night-time football chase built around speed, touch and a contested pair of boots.",
     video: "/media/nike-mercurial.mp4",
@@ -157,6 +165,7 @@ export const works: PortfolioWork[] = [
     title: "2026 World Cup Edition",
     eyebrow: "Product collection film",
     category: "Commercial",
+    galleryCategory: "Ads",
     year: "2026",
     description: "Three monochrome football objects move from prototype-white to a finished tournament collection.",
     video: "/media/world-cup-collection.mp4",
@@ -179,6 +188,7 @@ export const works: PortfolioWork[] = [
     title: "Gwangjang Market Run",
     eyebrow: "Character vlog",
     category: "Character",
+    galleryCategory: "Yoonjae & Gia",
     year: "2026",
     description: "Yoonjae moves through Gwangjang Market in a fast, sweaty post-training food vlog.",
     video: "/media/gwangjang-market.mp4",
@@ -198,6 +208,7 @@ export const works: PortfolioWork[] = [
     title: "The Match Went Dark",
     eyebrow: "Short-form story",
     category: "Story",
+    galleryCategory: "Yoonjae & Gia",
     year: "2026",
     description: "A football fan's biggest moment freezes with the screen, turning a Wi-Fi failure into a compact character story.",
     video: "/media/wifi-blackout.mp4",
@@ -216,6 +227,7 @@ export const works: PortfolioWork[] = [
     title: "Do 7 — Rain Training",
     eyebrow: "Athlete character film",
     category: "Sports",
+    galleryCategory: "Yoonjae & Gia",
     year: "2026",
     description: "A rain-soaked training film that treats repetition and solitude as the athlete's real opponent.",
     video: "/media/rain-training.mp4",
@@ -233,6 +245,7 @@ export const works: PortfolioWork[] = [
     title: "One Kick Left",
     eyebrow: "15-second sports spot",
     category: "Commercial",
+    galleryCategory: "Ads",
     year: "2026",
     description: "A compact penalty sequence that turns match pressure into a clean recovery-product reveal.",
     video: "/media/penalty-kick.mp4",
@@ -251,6 +264,7 @@ export const works: PortfolioWork[] = [
     title: "Off the Mark",
     eyebrow: "Character experiment",
     category: "Character",
+    galleryCategory: "Yoonjae & Gia",
     year: "2026",
     description: "A later Yoonjae experiment exploring physical comedy, outdoor movement and bilingual delivery.",
     video: "/media/forest-run.mp4",

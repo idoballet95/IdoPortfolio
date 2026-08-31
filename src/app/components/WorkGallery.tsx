@@ -6,18 +6,17 @@ import { works } from "../data/works";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const galleryCategories = [
-  { key: "All", label: "ALL", icon: Grid2X2, iconBg: "#e7e1ff", iconColor: "#6747e8", match: () => true },
-  { key: "Ads", label: "ADS", icon: Clapperboard, iconBg: "#ffe0d6", iconColor: "#df4a2b", match: (slug: string) => ["pink-mercurial-rivalry", "nike-mercurial", "penalty-kick-ad", "world-cup-product-collection"].includes(slug) },
-  { key: "Yoonjae", label: "YOONJAE", icon: UserRound, iconBg: "#ddeeff", iconColor: "#2873c8", match: (slug: string) => ["golden-ball-chase", "gwangjang-market-vlog", "wifi-blackout", "rainy-track-film", "forest-run"].includes(slug) },
-  { key: "Experiments", label: "EXPERIMENTS", icon: FlaskConical, iconBg: "#e7f7a8", iconColor: "#4f7300", match: (slug: string) => slug === "apocalypse-football" },
+  { key: "All", label: "ALL", icon: Grid2X2, iconBg: "#e7e1ff", iconColor: "#6747e8" },
+  { key: "Ads", label: "ADS", icon: Clapperboard, iconBg: "#ffe0d6", iconColor: "#df4a2b" },
+  { key: "Yoonjae & Gia", label: "YOONJAE & GIA", icon: UserRound, iconBg: "#ddeeff", iconColor: "#2873c8" },
+  { key: "Experiments", label: "EXPERIMENTS", icon: FlaskConical, iconBg: "#e7f7a8", iconColor: "#4f7300" },
 ] as const;
 
 export function WorkGallery() {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<(typeof galleryCategories)[number]["key"]>("All");
   const { language } = useLanguage();
-  const currentCategory = galleryCategories.find((category) => category.key === activeCategory) ?? galleryCategories[0];
-  const filtered = works.filter((work) => currentCategory.match(work.slug));
+  const filtered = activeCategory === "All" ? works : works.filter((work) => work.galleryCategory === activeCategory);
   return (
     <main id="main-content" className="min-h-screen bg-white pb-24 pt-20 text-[#111]">
       <section className="bg-[#F5F5DC] px-5 pb-9 pt-8 sm:px-8 lg:px-5">
@@ -28,7 +27,7 @@ export function WorkGallery() {
           <p className="mt-9 max-w-[54rem] text-sm font-medium leading-7 text-black/50 sm:text-base">{language === "en" ? "An archive of AI productions in practice." : "실전에서 제작한 AI 작업 아카이브입니다."}</p>
         </header>
         <nav aria-label="작품 분류" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          {galleryCategories.map((category) => { const Icon = category.icon; const count = works.filter((work) => category.match(work.slug)).length; const active = activeCategory === category.key; return (
+          {galleryCategories.map((category) => { const Icon = category.icon; const count = category.key === "All" ? works.length : works.filter((work) => work.galleryCategory === category.key).length; const active = activeCategory === category.key; return (
             <button key={category.key} onClick={() => setActiveCategory(category.key)} aria-pressed={active} className={`flex min-h-[4.5rem] items-center gap-3 rounded-2xl border p-3 text-left transition-all duration-200 active:scale-[.99] ${active ? "border-black bg-black text-white" : "border-black/10 bg-white hover:border-black/35"}`}>
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full" style={{ backgroundColor: category.iconBg, color: category.iconColor }}><Icon className="h-[18px] w-[18px]" /></span><span><strong className="block text-base font-black tracking-[-.035em] sm:text-lg">{category.label}</strong><span className={`mt-0.5 block font-mono text-[11px] ${active ? "text-white/65" : "text-black/45"}`}>{count} works</span></span>
             </button>); })}
