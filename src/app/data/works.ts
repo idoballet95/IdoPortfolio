@@ -24,6 +24,28 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "tournament-warmup",
+    title: "Definitely Not Leg Day",
+    eyebrow: "Yoonjae pre-tournament gym vlog",
+    category: "Character",
+    galleryCategory: "Yoonjae & Gia",
+    year: "2026",
+    description: "On the eve of a tournament, Yoonjae insists he is only warming up lightly while clearly putting his legs through a full session and debating chicken breast versus Korean barbecue.",
+    video: "/media/tournament-warmup.mov",
+    poster: "/media/tournament-warmup.jpg",
+    duration: "00:33",
+    role: "Video2X 4K upscale, edit and English–Korean bilingual subtitles",
+    tools: ["Video2X", "Real-ESRGAN", "Whisper DTW", "FFmpeg"],
+    objective: "Show Yoonjae's pre-tournament mindset through a casual gym vlog and a playful food decision.",
+    process: [
+      "Upscaled the 1080p source to 4K with Video2X and Real-ESRGAN animevideov3 ×2.",
+      "Aligned six English–Korean subtitle cards with Whisper DTW and frame-level timing checks.",
+      "Split the two longest passages at natural semantic boundaries and verified every line inside the 80% safe width.",
+    ],
+    challenge: "The 4K enhancement had to remain fast and natural while long bilingual lines still needed to read comfortably without shrinking the typography.",
+    outcome: "A 33-second 4K bilingual character vlog with concise captions and the original gym ambience intact.",
+  },
+  {
     slug: "bose-quietcomfort",
     title: "Only What You Want",
     eyebrow: "Bose QuietComfort commercial",
