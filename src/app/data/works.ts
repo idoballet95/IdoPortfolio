@@ -24,6 +24,28 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "extreme-energy-drink-ad",
+    title: "Extreme Energy Drink Ad",
+    eyebrow: "High-speed Seoul energy drink commercial",
+    category: "Commercial",
+    galleryCategory: "Ads",
+    year: "2026",
+    description: "A depleted footballer cracks open an energy drink and tears through Seoul at impossible speed, only for the night-time power fantasy to collapse into a late-morning wake-up call.",
+    video: "/media/extreme-energy-drink-ad.mov",
+    poster: "/media/extreme-energy-drink-ad.jpg",
+    duration: "00:37",
+    role: "Concept, AI direction, edit, sound design and 4K upscale",
+    tools: ["Higgsfield", "CapCut", "Video2X", "Real-ESRGAN", "FFmpeg"],
+    objective: "Turn an energy boost into a visually immediate journey across Seoul, then land the product story with a comic dream reveal.",
+    process: [
+      "Built a night-time ascent through neon alleys, street-food tents, the Han River and Namsan around one continuous burst of speed.",
+      "Combined live-action AI video with red-and-white hand-drawn graphics, product close-ups, location sound and a dream-to-bedroom reveal.",
+      "Upscaled the finished 1080p edit to 4K with Video2X and prepared a high-quality HEVC delivery copy for the portfolio.",
+    ],
+    challenge: "Fast location changes, graphic overlays and a recurring product can had to remain readable while Gia's identity and direction of travel stayed coherent.",
+    outcome: "A 37-second energy-drink commercial that moves from exhaustion to a city-scale power fantasy and finishes on a comic product reveal.",
+  },
+  {
     slug: "tournament-warmup",
     title: "Definitely Not Leg Day",
     eyebrow: "Yoonjae pre-tournament gym vlog",
