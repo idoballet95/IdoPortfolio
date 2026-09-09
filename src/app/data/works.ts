@@ -24,6 +24,29 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "step-out-in-color",
+    title: "Step Out in Color",
+    eyebrow: "Gia futsal colourway concept commercial",
+    category: "Commercial",
+    galleryCategory: "Ads",
+    year: "2026",
+    description: "Gia steps through a monumental futsal shoe as white, red, pink, black and blue colourways rotate through a paint-splash fashion sequence.",
+    video: "/media/step-out-in-color.mp4",
+    poster: "/media/step-out-in-color.jpg",
+    duration: "00:15",
+    role: "Concept, character direction, AI video, music direction, sound mix and 4K delivery",
+    tools: ["Higgsfield", "Seedance 2.0", "GPT Image 2", "Suno", "FFmpeg"],
+    featured: true,
+    objective: "Translate a colourway showcase into a single visual mechanism where Gia, the styling and a human-scale futsal shoe change together.",
+    process: [
+      "Built five identity-locked Gia looks and five product references around a fixed white studio, vertical shoe portal and rotating five-card colour fan.",
+      "Directed one continuous 15-second take from the white sock-only entrance through red, pink, black and blue fashion poses, using paint splashes to conceal each hard swap.",
+      "Mixed the selected Suno track beneath the generated paint, swatch and fabric effects, then delivered a vertical 4K H.264 master.",
+    ],
+    challenge: "Gia's face, neck length and proportions had to remain stable while every wardrobe, hairstyle, makeup accent and giant shoe changed inside fast liquid transitions.",
+    outcome: "A dialogue-free 15-second spec commercial that turns five futsal colourways into one continuous fashion transformation.",
+  },
+  {
     slug: "gia-off-duty-somehow",
     title: "Off Duty, Somehow",
     eyebrow: "Gia autumn day-off vlog",
