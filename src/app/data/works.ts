@@ -24,6 +24,28 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "midnight-fridge-inspection",
+    title: "Fridge Inspection",
+    eyebrow: "Gia midnight fridge vlog",
+    category: "Character",
+    galleryCategory: "Yoonjae & Gia",
+    year: "2026",
+    description: "Caught eating cake from the refrigerator at midnight, Gia insists she is only inspecting it.",
+    video: "/media/midnight-fridge-inspection.mp4",
+    poster: "/media/midnight-fridge-inspection.jpg",
+    duration: "00:19",
+    role: "Concept, character direction, AI video, edit and English–Korean bilingual subtitles",
+    tools: ["Higgsfield", "Seedance 2.5", "FFmpeg", "whisper.cpp", "Promptwhat Dual"],
+    objective: "Turn a fixed refrigerator camera, a stolen bite of cake and one defensive line into a compact character comedy.",
+    process: [
+      "Built and registered a reusable Gia character element with loose chestnut waves, an oversized grey hoodie and red plaid pyjama trousers.",
+      "Directed the scene from a refrigerator-interior viewpoint with an intentionally rough phone-video texture, then trimmed the failed choking reaction at the last clean thumbs-up frame.",
+      "Aligned the English line locally with whisper.cpp and burned a two-line English–Korean vlog caption using the Promptwhat Dual preset.",
+    ],
+    challenge: "Gia's identity and deadpan expression had to stay readable through harsh refrigerator light, low-quality phone texture and a mouthful of cake while the final physical gag was cleanly removed.",
+    outcome: "An 18.875-second bilingual character vlog that ends on Gia's straight-faced thumbs-up instead of the discarded choking reaction.",
+  },
+  {
     slug: "step-out-in-color",
     title: "Step Out in Color",
     eyebrow: "Gia futsal colourway concept commercial",
