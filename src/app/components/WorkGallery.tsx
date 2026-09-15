@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, Clapperboard, FlaskConical, Grid2X2, UserRound } from "lucide-react";
+import { ArrowLeft, Clapperboard, Grid2X2, Palette, PartyPopper, UserRound } from "lucide-react";
 import { useNavigate } from "react-router";
 import { works } from "../data/works";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -9,7 +9,8 @@ const galleryCategories = [
   { key: "All", label: "ALL", icon: Grid2X2, iconBg: "#e7e1ff", iconColor: "#6747e8" },
   { key: "Ads", label: "ADS", icon: Clapperboard, iconBg: "#ffe0d6", iconColor: "#df4a2b" },
   { key: "Yoonjae & Gia", label: "YOONJAE & GIA", icon: UserRound, iconBg: "#ddeeff", iconColor: "#2873c8" },
-  { key: "Experiments", label: "EXPERIMENTS", icon: FlaskConical, iconBg: "#e7f7a8", iconColor: "#4f7300" },
+  { key: "Yena", label: "YENA", icon: Palette, iconBg: "#f5e2ff", iconColor: "#9b35c8" },
+  { key: "Etc for Fun", label: "ETC FOR FUN", icon: PartyPopper, iconBg: "#e7f7a8", iconColor: "#4f7300" },
 ] as const;
 
 export function WorkGallery() {
@@ -26,7 +27,7 @@ export function WorkGallery() {
           <h1 className="font-['Arial','Helvetica_Neue',sans-serif] text-[clamp(3.5rem,8vw,7.25rem)] font-extrabold lowercase leading-[.78] tracking-[-.075em]">i.do.picks</h1>
           <p className="mt-9 max-w-[54rem] text-sm font-medium leading-7 text-black/50 sm:text-base">{language === "en" ? "An archive of AI productions in practice." : "실전에서 제작한 AI 작업 아카이브입니다."}</p>
         </header>
-        <nav aria-label="작품 분류" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <nav aria-label="작품 분류" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
           {galleryCategories.map((category) => { const Icon = category.icon; const count = category.key === "All" ? works.length : works.filter((work) => work.galleryCategory === category.key).length; const active = activeCategory === category.key; return (
             <button key={category.key} onClick={() => setActiveCategory(category.key)} aria-pressed={active} className={`flex min-h-[4.5rem] items-center gap-3 rounded-2xl border p-3 text-left transition-all duration-200 active:scale-[.99] ${active ? "border-black bg-black text-white" : "border-black/10 bg-white hover:border-black/35"}`}>
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full" style={{ backgroundColor: category.iconBg, color: category.iconColor }}><Icon className="h-[18px] w-[18px]" /></span><span><strong className="block text-base font-black tracking-[-.035em] sm:text-lg">{category.label}</strong><span className={`mt-0.5 block font-mono text-[11px] ${active ? "text-white/65" : "text-black/45"}`}>{count} works</span></span>
