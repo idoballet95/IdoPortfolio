@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { createHash } from 'node:crypto'
 import { defineConfig, searchForWorkspaceRoot, type Plugin } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
@@ -17,6 +18,17 @@ interface CurationAsset {
   category: CurationCategory
   relativePath: string
   url: string
+  duplicateIds: string[]
+}
+
+interface CollectedAsset extends CurationAsset {
+  absolutePath: string
+  size: number
+}
+
+interface DuplicateSummary {
+  groups: number
+  hidden: number
 }
 
 function episodeFromRelativePath(relativePath: string) {
@@ -39,10 +51,25 @@ function classifyAsset(relativePath: string): CurationCategory | null {
   return null
 }
 
-function collectYenaAssets(): CurationAsset[] {
-  if (!fs.existsSync(YENA_EPISODES_ROOT)) return []
+function canonicalPenalty(relativePath: string) {
+  let penalty = 0
+  if (/(^|[/\\])YENA_[^/\\]*([/\\]|$)/i.test(relativePath)) penalty += 100
+  if (/(^|[/\\])(_?original-aspect|_?invalid-aspect|qc-rejects?|archive|old)([/\\]|$)/i.test(relativePath)) penalty += 50
+  return penalty
+}
 
-  const assets: CurationAsset[] = []
+function chooseCanonical(group: CollectedAsset[]) {
+  return [...group].sort((a, b) =>
+    canonicalPenalty(a.relativePath) - canonicalPenalty(b.relativePath) ||
+    a.relativePath.length - b.relativePath.length ||
+    a.relativePath.localeCompare(b.relativePath, 'ko', { numeric: true }),
+  )[0]
+}
+
+function collectYenaAssets(): { assets: CurationAsset[]; summary: DuplicateSummary } {
+  if (!fs.existsSync(YENA_EPISODES_ROOT)) return { assets: [], summary: { groups: 0, hidden: 0 } }
+
+  const collected: CollectedAsset[] = []
   const directories = [YENA_EPISODES_ROOT]
 
   while (directories.length > 0) {
@@ -67,7 +94,7 @@ function collectYenaAssets(): CurationAsset[] {
       const category = classifyAsset(relativePath)
       if (!category) continue
 
-      assets.push({
+      collected.push({
         id: relativePath,
         name: entry.name,
         episode: episodeFromRelativePath(relativePath),
@@ -75,15 +102,53 @@ function collectYenaAssets(): CurationAsset[] {
         category,
         relativePath,
         url: `/@fs${absolutePath}`,
+        duplicateIds: [],
+        absolutePath,
+        size: fs.statSync(absolutePath).size,
       })
     }
   }
 
-  return assets.sort((a, b) =>
+  const dailyBySize = new Map<number, CollectedAsset[]>()
+  for (const asset of collected) {
+    if (asset.category !== 'daily') continue
+    const sameSize = dailyBySize.get(asset.size) || []
+    sameSize.push(asset)
+    dailyBySize.set(asset.size, sameSize)
+  }
+
+  const hiddenIds = new Set<string>()
+  const summary: DuplicateSummary = { groups: 0, hidden: 0 }
+  for (const sameSize of dailyBySize.values()) {
+    if (sameSize.length < 2) continue
+    const byHash = new Map<string, CollectedAsset[]>()
+    for (const asset of sameSize) {
+      const hash = createHash('sha256').update(fs.readFileSync(asset.absolutePath)).digest('hex')
+      const matches = byHash.get(hash) || []
+      matches.push(asset)
+      byHash.set(hash, matches)
+    }
+    for (const group of byHash.values()) {
+      if (group.length < 2) continue
+      const canonical = chooseCanonical(group)
+      const duplicates = group.filter((asset) => asset.id !== canonical.id)
+      canonical.duplicateIds = duplicates.map((asset) => asset.id)
+      duplicates.forEach((asset) => hiddenIds.add(asset.id))
+      summary.groups += 1
+      summary.hidden += duplicates.length
+    }
+  }
+
+  const assets = collected
+    .filter((asset) => !hiddenIds.has(asset.id))
+    .map(({ absolutePath: _absolutePath, size: _size, ...asset }) => asset)
+    .sort((a, b) =>
     a.episode.localeCompare(b.episode, 'ko') ||
     a.collection.localeCompare(b.collection, 'ko') ||
     a.name.localeCompare(b.name, 'ko', { numeric: true }),
   )
+
+  return { assets, summary }
 }
 
 function yenaCurationPlugin(): Plugin {
@@ -97,7 +162,8 @@ function yenaCurationPlugin(): Plugin {
     },
     load(id) {
       if (id !== resolvedId) return null
-      return `export default ${JSON.stringify(collectYenaAssets())}`
+      const { assets, summary } = collectYenaAssets()
+      return `export const duplicateSummary = ${JSON.stringify(summary)}; export default ${JSON.stringify(assets)}`
     },
   }
 }

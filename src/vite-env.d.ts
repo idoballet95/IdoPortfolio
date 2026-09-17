@@ -9,8 +9,10 @@ declare module "virtual:yena-curation-assets" {
     category: "daily" | "background" | "sheet";
     relativePath: string;
     url: string;
+    duplicateIds: string[];
   }
 
+  export const duplicateSummary: { groups: number; hidden: number };
   const assets: YenaCurationAsset[];
   export default assets;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { ArrowLeft, ArrowRight, Check, Download, Eye, RotateCcw, Search, X } from "lucide-react";
-import assets, { type YenaCurationAsset } from "virtual:yena-curation-assets";
+import assets, { duplicateSummary, type YenaCurationAsset } from "virtual:yena-curation-assets";
 
 type Decision = "keep" | "exclude" | "undecided";
 type CategoryFilter = "all" | YenaCurationAsset["category"];
@@ -29,8 +29,11 @@ function readDecisions(): Record<string, Decision> {
   }
 }
 
-function decisionFor(decisions: Record<string, Decision>, id: string): Decision {
-  return decisions[id] || "undecided";
+function decisionFor(decisions: Record<string, Decision>, asset: YenaCurationAsset): Decision {
+  const groupedDecisions = [asset.id, ...asset.duplicateIds].map((id) => decisions[id]);
+  if (groupedDecisions.includes("keep")) return "keep";
+  if (groupedDecisions.includes("exclude")) return "exclude";
+  return "undecided";
 }
 
 function CurationCard({
@@ -120,7 +123,7 @@ export function YenaCuration() {
     const result = { all: assets.length, daily: 0, background: 0, sheet: 0, keep: 0, exclude: 0, undecided: 0 };
     for (const asset of assets) {
       result[asset.category] += 1;
-      result[decisionFor(decisions, asset.id)] += 1;
+      result[decisionFor(decisions, asset)] += 1;
     }
     return result;
   }, [decisions]);
@@ -130,7 +133,7 @@ export function YenaCuration() {
     return assets.filter((asset) => {
       if (category !== "all" && asset.category !== category) return false;
       if (episode !== "all" && asset.episode !== episode) return false;
-      if (decisionFilter !== "all" && decisionFor(decisions, asset.id) !== decisionFilter) return false;
+      if (decisionFilter !== "all" && decisionFor(decisions, asset) !== decisionFilter) return false;
       if (needle && !`${asset.name} ${asset.episode} ${asset.collection} ${asset.relativePath}`.toLocaleLowerCase("ko").includes(needle)) return false;
       return true;
     });
@@ -142,8 +145,12 @@ export function YenaCuration() {
   const activeIndex = activeId ? filtered.findIndex((asset) => asset.id === activeId) : -1;
   const activeAsset = activeIndex >= 0 ? filtered[activeIndex] : null;
 
-  function decide(id: string, nextDecision: Decision) {
-    setDecisions((current) => ({ ...current, [id]: nextDecision }));
+  function decide(asset: YenaCurationAsset, nextDecision: Decision) {
+    setDecisions((current) => {
+      const updated = { ...current };
+      for (const id of [asset.id, ...asset.duplicateIds]) updated[id] = nextDecision;
+      return updated;
+    });
   }
 
   function step(direction: -1 | 1) {
@@ -155,7 +162,7 @@ export function YenaCuration() {
   function reviewActive(nextDecision: Decision) {
     if (!activeAsset) return;
     const nextAsset = filtered.length > 1 ? filtered[(activeIndex + 1) % filtered.length] : null;
-    decide(activeAsset.id, nextDecision);
+    decide(activeAsset, nextDecision);
     setActiveId(nextAsset?.id || null);
   }
 
@@ -175,8 +182,8 @@ export function YenaCuration() {
 
   function exportDecisions() {
     const payload = assets
-      .filter((asset) => decisionFor(decisions, asset.id) !== "undecided")
-      .map((asset) => ({ ...asset, url: undefined, decision: decisionFor(decisions, asset.id) }));
+      .filter((asset) => decisionFor(decisions, asset) !== "undecided")
+      .map((asset) => ({ ...asset, url: undefined, decision: decisionFor(decisions, asset) }));
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -233,6 +240,9 @@ export function YenaCuration() {
             <span className="font-mono text-[9px] text-black/45">{totals[value].toLocaleString()} FILES</span>
           </button>
         ))}
+        <div className="hidden items-center border-r border-black/15 px-5 font-mono text-[9px] uppercase tracking-[.08em] text-black/45 xl:flex">
+          완전 중복 {duplicateSummary.hidden}장 자동 정리 · {duplicateSummary.groups}그룹
+        </div>
         <div className="ml-auto hidden items-center px-5 font-mono text-[9px] uppercase tracking-[.12em] text-black/40 md:flex">
           K 유지 · X 제외 · U 미정 · ← → 이동
         </div>
@@ -259,7 +269,7 @@ export function YenaCuration() {
           <>
             <div className="curation-masonry gap-3" style={{ "--curation-columns": columns } as CSSProperties}>
               {visible.map((asset) => (
-                <CurationCard key={asset.id} asset={asset} decision={decisionFor(decisions, asset.id)} onOpen={() => setActiveId(asset.id)} onDecide={(next) => decide(asset.id, next)} />
+                <CurationCard key={asset.id} asset={asset} decision={decisionFor(decisions, asset)} onOpen={() => setActiveId(asset.id)} onDecide={(next) => decide(asset, next)} />
               ))}
             </div>
             {visibleCount < filtered.length && (
@@ -284,8 +294,8 @@ export function YenaCuration() {
             <h2 className="mt-3 break-all text-xl font-black leading-tight">{activeAsset.name}</h2>
             <p className="mt-3 break-all font-mono text-[10px] leading-relaxed text-white/45">{activeAsset.relativePath}</p>
             <div className="mt-auto grid gap-2 pt-7">
-              <button onClick={() => reviewActive("keep")} className={`flex h-12 items-center justify-between border px-4 font-bold ${decisionFor(decisions, activeAsset.id) === "keep" ? "border-[#d8e65b] bg-[#d8e65b] text-black" : "border-white/25 hover:bg-[#d8e65b] hover:text-black"}`}><span>유지하고 다음</span><span className="font-mono text-xs">K</span></button>
-              <button onClick={() => reviewActive("exclude")} className={`flex h-12 items-center justify-between border px-4 font-bold ${decisionFor(decisions, activeAsset.id) === "exclude" ? "border-[#ff6a4d] bg-[#ff6a4d] text-black" : "border-white/25 hover:bg-[#ff6a4d] hover:text-black"}`}><span>제외하고 다음</span><span className="font-mono text-xs">X</span></button>
+              <button onClick={() => reviewActive("keep")} className={`flex h-12 items-center justify-between border px-4 font-bold ${decisionFor(decisions, activeAsset) === "keep" ? "border-[#d8e65b] bg-[#d8e65b] text-black" : "border-white/25 hover:bg-[#d8e65b] hover:text-black"}`}><span>유지하고 다음</span><span className="font-mono text-xs">K</span></button>
+              <button onClick={() => reviewActive("exclude")} className={`flex h-12 items-center justify-between border px-4 font-bold ${decisionFor(decisions, activeAsset) === "exclude" ? "border-[#ff6a4d] bg-[#ff6a4d] text-black" : "border-white/25 hover:bg-[#ff6a4d] hover:text-black"}`}><span>제외하고 다음</span><span className="font-mono text-xs">X</span></button>
               <button onClick={() => reviewActive("undecided")} className="flex h-11 items-center justify-between border border-white/15 px-4 text-sm text-white/55 hover:text-white"><span>미정 · 다음</span><span className="font-mono text-xs">U</span></button>
             </div>
           </aside>
