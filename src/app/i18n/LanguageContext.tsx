@@ -6,7 +6,12 @@ const LanguageContext = createContext<{ language: Language; setLanguage: (langua
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(() => {
-    try { return localStorage.getItem("ido-language") === "ko" ? "ko" : "en"; } catch { return "en"; }
+    try {
+      const saved = localStorage.getItem("ido-language");
+      return saved === "en" ? "en" : "ko";
+    } catch {
+      return "ko";
+    }
   });
 
   useEffect(() => {
