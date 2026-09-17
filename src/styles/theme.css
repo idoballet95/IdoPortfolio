@@ -204,6 +204,22 @@
   text-wrap: balance;
 }
 
+.curation-masonry {
+  column-count: var(--curation-columns, 6);
+}
+
+@media (max-width: 1023px) {
+  .curation-masonry {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 639px) {
+  .curation-masonry {
+    column-count: 2;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

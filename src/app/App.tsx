@@ -10,6 +10,7 @@ import { WorkGallery } from "./components/WorkGallery";
 import { WorkDetail } from "./components/WorkDetail";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { SportsPicksPage } from "./components/SportsPicksPage";
+import { YenaCuration } from "./components/YenaCuration";
 
 function HomePage() {
   return (
@@ -49,6 +50,7 @@ export default function App() {
         <Route path="/work/:slug" element={<><Navigation /><WorkDetail /></>} />
         <Route path="/sports-picks" element={<><Navigation /><SportsPicksPage /></>} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/curate/yena" element={<YenaCuration />} />
       </Routes>
     </LanguageProvider>
   );

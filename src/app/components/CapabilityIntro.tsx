@@ -29,21 +29,11 @@ export function CapabilityIntro() {
     <section className="border-y border-black/15 bg-[#efefc9]" aria-labelledby="capability-heading">
       <div className="mx-auto max-w-[1800px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-12">
             <p className="editorial-kicker">AI CONTENT CREATOR · 2026</p>
             <h1 id="capability-heading" className="mt-6 max-w-[12ch] text-[clamp(3.1rem,7.2vw,8rem)] font-black leading-[.88] tracking-[-.075em] text-balance">
               Works
             </h1>
-          </div>
-          <div className="flex flex-col justify-end lg:col-span-4 lg:col-start-9">
-            <p className="max-w-[34rem] text-lg leading-8 text-black/66 sm:text-xl">
-              {language === "ko"
-                ? "콘셉트를 세우고, 생성하고, 비교하고, 다시 만듭니다. 첫 결과보다 최종 선택의 이유가 보이는 작업을 남깁니다."
-                : "I set the concept, generate, compare and rebuild. The work shows not only the final result, but why it became the final choice."}
-            </p>
-            <div className="mt-10 flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[.12em] text-black/45">
-              <span>33 PROJECTS</span><span aria-hidden="true">/</span><span>CONCEPT → DELIVERY</span>
-            </div>
           </div>
         </div>
 
