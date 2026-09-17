@@ -17,7 +17,7 @@ export function FeaturedCaseStudies() {
           <div className="lg:col-span-7">
             <p className="editorial-kicker">SELECTED CASE STUDIES</p>
             <h2 id="featured-heading" className="mt-4 text-[clamp(2.8rem,5vw,6rem)] font-black leading-[.9] tracking-[-.07em]">
-              {language === "ko" ? "결과보다 판단이 보이는 작업" : "Work that shows the decisions"}
+              {language === "ko" ? "결과보다 판단이 보이는 작업" : "work"}
             </h2>
           </div>
           <p className="max-w-lg text-sm leading-7 text-black/58 lg:col-span-4 lg:col-start-9">
