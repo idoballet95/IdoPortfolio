@@ -17,7 +17,7 @@ export function AIWorks() {
           <div className="lg:col-span-8">
             <p className="editorial-kicker">IMAGE · VIDEO · WRITING</p>
             <h2 className="mt-5 max-w-[11ch] text-[clamp(3.25rem,7vw,7.5rem)] font-black leading-[0.86] tracking-[-0.07em] text-balance">
-              {language === "ko" ? "첫 생성보다, 최종 선택의 이유." : "Not the first generation. The reason for the final choice."}
+              {language === "ko" ? "첫 생성보다, 최종 선택의 이유." : "Neuroplasticity is my thing"}
             </h2>
           </div>
           <div className="lg:col-span-4">
