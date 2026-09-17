@@ -13,7 +13,7 @@ export function ImageDirectionGallery({ compact = false }: { compact?: boolean }
           <div className="lg:col-span-7">
             <p className="editorial-kicker text-[#d8e65b]">IMAGE DIRECTION</p>
             <h2 id="image-direction-heading" className="mt-4 text-[clamp(2.8rem,5vw,6rem)] font-black leading-[.9] tracking-[-.07em]">
-              {language === "ko" ? "좋은 이미지는 선택 기준이 선명합니다." : "A strong image has clear selection criteria."}
+              Images
             </h2>
           </div>
           <p className="max-w-lg text-sm leading-7 text-white/55 lg:col-span-4 lg:col-start-9">

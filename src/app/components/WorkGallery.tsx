@@ -11,6 +11,8 @@ import { ImageDirectionGallery } from "./ImageDirectionGallery";
 import { WritingSystems } from "./WritingSystems";
 
 type FilterKey = "All" | "Featured" | "Video" | "Image" | "Writing" | "Character";
+type VideoTab = "Ads" | "Character";
+type CharacterTab = "Yena" | "GiaYoonjae";
 
 const filters: Array<{ key: FilterKey; en: string; ko: string }> = [
   { key: "All", en: "All", ko: "전체" },
@@ -59,15 +61,38 @@ function VideoGrid({ items }: { items: PortfolioWork[] }) {
   );
 }
 
-function VideoGroup({ title, items, nested = false }: { title: string; items: PortfolioWork[]; nested?: boolean }) {
+function CategoryTabs<T extends string>({
+  label,
+  value,
+  items,
+  onChange,
+  compact = false,
+}: {
+  label: string;
+  value: T;
+  items: Array<{ key: T; title: string; count: number }>;
+  onChange: (value: T) => void;
+  compact?: boolean;
+}) {
   return (
-    <section className={nested ? "mt-12" : "mt-16"} aria-label={title}>
-      <div className="mb-6 flex items-end justify-between gap-6 border-b border-black/15 pb-4">
-        <h3 className={nested ? "text-2xl font-black tracking-[-.045em] sm:text-3xl" : "text-4xl font-black tracking-[-.06em] sm:text-5xl"}>{title}</h3>
-        <span className="font-mono text-[10px] tabular-nums text-black/45">{String(items.length).padStart(2, "0")} VIDEO</span>
-      </div>
-      <VideoGrid items={items} />
-    </section>
+    <div role="tablist" aria-label={label} className={`grid grid-cols-2 border border-black ${compact ? "max-w-2xl" : "w-full"}`}>
+      {items.map((item) => {
+        const selected = value === item.key;
+        return (
+          <button
+            key={item.key}
+            type="button"
+            role="tab"
+            aria-selected={selected}
+            onClick={() => onChange(item.key)}
+            className={`flex min-h-14 items-center justify-between gap-4 px-4 text-left transition-colors focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-6 ${selected ? "bg-black text-white" : "border-black/20 bg-white text-black hover:bg-[#efefc9] [&:not(:last-child)]:border-r"}`}
+          >
+            <span className={`${compact ? "text-base sm:text-lg" : "text-lg sm:text-2xl"} font-black tracking-[-.035em]`}>{item.title}</span>
+            <span className={`font-mono text-[9px] tabular-nums ${selected ? "text-white/55" : "text-black/38"}`}>{String(item.count).padStart(2, "0")}</span>
+          </button>
+        );
+      })}
+    </div>
   );
 }
 
@@ -75,9 +100,22 @@ export function WorkGallery() {
   const navigate = useNavigate();
   const { language } = useLanguage();
   const [active, setActive] = useState<FilterKey>("All");
+  const [videoTab, setVideoTab] = useState<VideoTab>("Ads");
+  const [characterTab, setCharacterTab] = useState<CharacterTab>("Yena");
 
   const showVideo = active === "All" || active === "Featured" || active === "Video" || active === "Character";
-  const visibleVideoCount = active === "Featured" ? featured.length : active === "Character" ? yena.length + giaYoonjae.length : ads.length + yena.length + giaYoonjae.length;
+  const activeVideoItems = videoTab === "Ads" ? ads : characterTab === "Yena" ? yena : giaYoonjae;
+  const visibleVideoCount = active === "Featured" ? featured.length : activeVideoItems.length;
+
+  const selectFilter = (filter: FilterKey) => {
+    setActive(filter);
+    if (filter === "Character") setVideoTab("Character");
+  };
+
+  const selectVideoTab = (tab: VideoTab) => {
+    setVideoTab(tab);
+    if (active === "Character" && tab === "Ads") setActive("Video");
+  };
 
   return (
     <main id="main-content" className="min-h-screen bg-[#f7f4eb] pt-20 text-[#151510]">
@@ -92,7 +130,7 @@ export function WorkGallery() {
           {filters.map((filter) => (
             <button
               key={filter.key}
-              onClick={() => setActive(filter.key)}
+              onClick={() => selectFilter(filter.key)}
               aria-pressed={active === filter.key}
               className={`shrink-0 px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${active === filter.key ? "bg-black text-white" : "border border-black/15 bg-transparent text-black/55 hover:border-black hover:text-black"}`}
             >
@@ -117,17 +155,43 @@ export function WorkGallery() {
             {active === "Featured" ? (
               <VideoGrid items={featured} />
             ) : (
-              <>
-                {active !== "Character" && <VideoGroup title="AD" items={ads} />}
-                <section className="mt-24 border-t-2 border-black pt-7" aria-labelledby="character-ip-heading">
-                  <div className="flex items-end justify-between gap-6">
-                    <h3 id="character-ip-heading" className="text-4xl font-black tracking-[-.06em] sm:text-5xl">Character IP</h3>
-                    <span className="font-mono text-[10px] tabular-nums text-black/45">{String(yena.length + giaYoonjae.length).padStart(2, "0")} VIDEO</span>
+              <div>
+                <CategoryTabs<VideoTab>
+                  label="Video category"
+                  value={videoTab}
+                  onChange={selectVideoTab}
+                  items={[
+                    { key: "Ads", title: "Ads", count: ads.length },
+                    { key: "Character", title: "Character IP", count: yena.length + giaYoonjae.length },
+                  ]}
+                />
+
+                {videoTab === "Character" && (
+                  <div className="mt-5">
+                    <CategoryTabs<CharacterTab>
+                      compact
+                      label="Character IP series"
+                      value={characterTab}
+                      onChange={setCharacterTab}
+                      items={[
+                        { key: "Yena", title: "Yena", count: yena.length },
+                        { key: "GiaYoonjae", title: "Gia & Yoonjae", count: giaYoonjae.length },
+                      ]}
+                    />
                   </div>
-                  <VideoGroup title="Yena" items={yena} nested />
-                  <VideoGroup title="Gia & Yoonjae" items={giaYoonjae} nested />
-                </section>
-              </>
+                )}
+
+                <motion.div
+                  key={`${videoTab}-${characterTab}`}
+                  role="tabpanel"
+                  className="mt-10"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: .25 }}
+                >
+                  <VideoGrid items={activeVideoItems} />
+                </motion.div>
+              </div>
             )}
           </div>
         </section>

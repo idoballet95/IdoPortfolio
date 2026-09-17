@@ -32,7 +32,7 @@ export function CapabilityIntro() {
           <div className="lg:col-span-7">
             <p className="editorial-kicker">AI CONTENT CREATOR · 2026</p>
             <h1 id="capability-heading" className="mt-6 max-w-[12ch] text-[clamp(3.1rem,7.2vw,8rem)] font-black leading-[.88] tracking-[-.075em] text-balance">
-              {language === "ko" ? "이미지·영상·글을 하나의 브랜드 언어로 만듭니다." : "i.do.aiworks"}
+              Works
             </h1>
           </div>
           <div className="flex flex-col justify-end lg:col-span-4 lg:col-start-9">

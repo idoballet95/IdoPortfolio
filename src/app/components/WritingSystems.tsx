@@ -14,7 +14,7 @@ export function WritingSystems({ compact = false }: { compact?: boolean }) {
           <div className="lg:col-span-7">
             <p className="editorial-kicker">WRITING &amp; SYSTEMS</p>
             <h2 id="writing-systems-heading" className="mt-4 text-[clamp(2.8rem,5vw,6rem)] font-black leading-[.9] tracking-[-.07em]">
-              {language === "ko" ? "글 한 편보다, 같은 목소리로 계속 쓰는 방법" : "Beyond one article: a voice that can keep writing"}
+              Beyond voice
             </h2>
           </div>
           <p className="max-w-lg text-sm leading-7 text-black/58 lg:col-span-4 lg:col-start-9">
