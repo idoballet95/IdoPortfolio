@@ -24,6 +24,29 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-free-them-from-their-poses",
+    title: "Free Them From Their Poses",
+    eyebrow: "Yena × masterpieces on break, 20-second cinematic short",
+    category: "Character",
+    galleryCategory: "Yena",
+    year: "2026",
+    description: "Mona Lisa, Ophelia, Napoleon and Whistler’s Mother step out of their frames to rest against the DDP wall in Seoul; Yena offers a group photo in any pose, frees each of them from the pose they have held for centuries, and they jump.",
+    video: "/media/yena-free-them-from-their-poses.mp4",
+    poster: "/media/yena-free-them-from-their-poses.jpg",
+    duration: "00:20",
+    role: "Benchmark reverse-engineering, concept, casting, camera design, AI video, voice repair, music and bilingual subtitles",
+    tools: ["Seedance 2.5", "Codex image", "Midjourney", "Fish Audio", "Suno", "Video2X", "Promptwhat Dual", "FFmpeg"],
+    objective: "Transplant only the camera grammar of a viral 15-cut Seedance meme reel, its crane top-down, profile slide with occlusion wipes, rolling pull-out, lock-off, tracking pass and low-angle slow-motion payoff, into a warm art-history story of its own.",
+    process: [
+      "Cut-detected the 20-second benchmark frame by frame and mapped its fourteen camera moves and cut lengths, then wrote a new story on that exact skeleton.",
+      "Cast four painting subjects with real pose stories, built NOFACE character sheets for all of them plus Yena, and staged the scene on a single Midjourney DDP plate.",
+      "Generated the whole piece in one 20-second Seedance 2.5 run from a 10,000-character timestamped prompt, then repaired one mispronounced word in Yena’s own voice with Fish Audio and finished with bilingual subtitles and a baroque-meets-lo-fi score.",
+    ],
+    challenge: "Fourteen shots, five consistent faces, two in-camera transitions and a jump where one character must stay seated all had to survive a single generation, and the emotional turn had to read as liberation rather than a gag.",
+    outcome: "A 20-second 1920×823 landscape master with the vertical Instagram package pending its ceramic title lettering.",
+    promptFile: "/prompts/yena-free-them-from-their-poses.md",
+  },
+  {
     slug: "yena-las-meninas-princess-part-1",
     title: "K-BBQ with Las Meninas’ Princess — Part I",
     eyebrow: "Yena × Princess Margarita Seoul vlog",
