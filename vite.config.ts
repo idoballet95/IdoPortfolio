@@ -168,6 +168,35 @@ function yenaCurationPlugin(): Plugin {
   }
 }
 
+function imageOrderPlugin(): Plugin {
+  const orderFile = path.resolve(__dirname, 'src/app/data/image-order.json')
+  return {
+    name: 'image-order-writer',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use('/__image-order', (req, res) => {
+        if (req.method !== 'POST') {
+          res.statusCode = 405
+          return res.end()
+        }
+        let body = ''
+        req.on('data', (chunk) => { body += chunk })
+        req.on('end', () => {
+          try {
+            const parsed = JSON.parse(body)
+            fs.writeFileSync(orderFile, JSON.stringify(parsed, null, 2) + '\n')
+            res.setHeader('Content-Type', 'application/json')
+            res.end(JSON.stringify({ ok: true }))
+          } catch (error) {
+            res.statusCode = 400
+            res.end(String(error))
+          }
+        })
+      })
+    },
+  }
+}
+
 export default defineConfig({
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
@@ -175,6 +204,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     yenaCurationPlugin(),
+    imageOrderPlugin(),
   ],
   resolve: {
     alias: {

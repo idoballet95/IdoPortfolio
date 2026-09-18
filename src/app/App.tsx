@@ -7,6 +7,8 @@ import { SportsPicks } from "./components/SportsPicks";
 import { Contact } from "./components/Contact";
 import { FavoritesPage } from "./components/FavoritesPage";
 import { WorkGallery } from "./components/WorkGallery";
+import { ImagesPage } from "./components/ImagesPage";
+import { VideosPage } from "./components/VideosPage";
 import { WorkDetail } from "./components/WorkDetail";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { SportsPicksPage } from "./components/SportsPicksPage";
@@ -47,6 +49,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<><Navigation /><WorkGallery /></>} />
+        <Route path="/work/images" element={<><Navigation /><ImagesPage /></>} />
+        <Route path="/work/videos" element={<><Navigation /><VideosPage /></>} />
         <Route path="/work/:slug" element={<><Navigation /><WorkDetail /></>} />
         <Route path="/sports-picks" element={<><Navigation /><SportsPicksPage /></>} />
         <Route path="/favorites" element={<FavoritesPage />} />

@@ -33,6 +33,7 @@ export const featuredSlugs = [
   "step-out-in-color",
   "yena-hokusai-great-wave",
   "world-cup-product-collection",
+  "nike-mercurial",
 ] as const;
 
 export const workEvidence: Record<string, WorkEvidence> = {
@@ -233,6 +234,20 @@ export const workEvidence: Record<string, WorkEvidence> = {
       },
     ],
   },
+  "nike-mercurial": {
+    brief: {
+      ko: "야간 경기장에서 축구화 한 켤레를 두고 벌어지는 추격을 40초 액션 광고로 만든 스펙 커머셜입니다.",
+      en: "A 40-second spec commercial that turns a contested pair of boots into a night-time football chase.",
+    },
+    creativeDecision: {
+      ko: "제품 데모 대신 속도·터치·추격의 드라마를 엔진으로 삼고, 빠른 컷 속에서도 축구화가 읽히도록 캐릭터·조명·제품 연속성을 기준으로 샷을 골랐습니다.",
+      en: "Speed, touch and pursuit drive the film instead of a product demo; shots were selected for continuity of character, lighting and boot so the product stays legible at pace.",
+    },
+    delivery: {
+      ko: "40초 액션 커머셜 · AI 비디오, CapCut · 한/영 이중 자막",
+      en: "40-second action commercial · AI video, CapCut · Korean–English subtitles",
+    },
+  },
 };
 
 export interface EditorialCase {
@@ -300,14 +315,6 @@ export const editorialCases: EditorialCase[] = [
       { src: "/media/process/writing/approved-blog-03.jpg", label: { ko: "메뉴 이미지 03", en: "Menu image 03" }, alt: { ko: "네이버 블로그에 사용한 세 번째 승인 음식 사진", en: "Third approved food photograph used in the Naver Blog package" }, note: { ko: "글의 리듬을 바꾸는 디저트 이미지", en: "A dessert image that changes the article rhythm" } },
     ],
   },
-];
-
-export const imageDirectionItems: ProcessAsset[] = [
-  ...workEvidence["step-out-in-color"].processAssets!.slice(0, 4),
-  workEvidence["bose-quietcomfort"].processAssets![0],
-  workEvidence["yena-hokusai-great-wave"].processAssets![1],
-  workEvidence["world-cup-product-collection"].processAssets![1],
-  workEvidence["world-cup-product-collection"].processAssets![3],
 ];
 
 export function pick(text: LocalizedText, language: Language) {
