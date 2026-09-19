@@ -31,9 +31,9 @@ export interface WorkEvidence {
 export const featuredSlugs = [
   "bose-quietcomfort",
   "step-out-in-color",
-  "yena-hokusai-great-wave",
-  "world-cup-product-collection",
   "nike-mercurial",
+  "world-cup-product-collection",
+  "yena-hokusai-great-wave",
 ] as const;
 
 export const workEvidence: Record<string, WorkEvidence> = {

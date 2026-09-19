@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -8,6 +8,23 @@ export function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
   const { language, setLanguage } = useLanguage();
+  const [eatsOpen, setEatsOpen] = useState(false);
+  const eatsRef = useRef<HTMLDivElement>(null);
+
+  // Close the i.do.eats menu on outside click or Escape
+  useEffect(() => {
+    if (!eatsOpen) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!eatsRef.current?.contains(event.target as Node)) setEatsOpen(false);
+    };
+    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setEatsOpen(false);
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [eatsOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,13 +92,44 @@ export function Navigation() {
             </motion.button>
           ))}
           <a
-            href="https://idoeats.netlify.app"
+            href="https://www.instagram.com/yena.inart/"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden whitespace-nowrap text-sm font-medium transition-opacity hover:opacity-55 md:inline-flex"
           >
-            i.do.eats ↗
+            Yena IG ↗
           </a>
+          <div ref={eatsRef} className="relative hidden md:block">
+            <button
+              type="button"
+              onClick={() => setEatsOpen((value) => !value)}
+              aria-haspopup="menu"
+              aria-expanded={eatsOpen}
+              className="whitespace-nowrap text-sm font-medium transition-opacity hover:opacity-55"
+            >
+              i.do.eats <span className={`inline-block transition-transform duration-200 ${eatsOpen ? "rotate-180" : ""}`}>▾</span>
+            </button>
+            {eatsOpen && (
+              <div role="menu" className="absolute right-0 top-full mt-3 min-w-[11rem] border border-black/15 bg-[#F5F1E7] shadow-lg">
+                {[
+                  { label: language === "ko" ? "웹사이트" : "Website", href: "https://idoeats.netlify.app" },
+                  { label: "Instagram", href: "https://www.instagram.com/i.do.eats/" },
+                ].map((item) => (
+                  <a
+                    key={item.href}
+                    role="menuitem"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setEatsOpen(false)}
+                    className="flex items-center justify-between gap-6 px-4 py-3 text-sm font-medium transition-colors hover:bg-black hover:text-white [&:not(:last-child)]:border-b [&:not(:last-child)]:border-black/10"
+                  >
+                    {item.label} <span className="text-xs">↗</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
           <div className="flex items-center gap-1 border-l border-black/15 pl-3 font-mono text-[10px] font-bold tracking-[.08em] sm:pl-5 sm:text-xs" aria-label="Language">
             <button onClick={() => setLanguage("en")} aria-pressed={language === "en"} className={language === "en" ? "text-black" : "text-black/35 hover:text-black/70"}>ENG</button>
             <span className="text-black/20">/</span>
