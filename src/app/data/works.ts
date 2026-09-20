@@ -24,6 +24,29 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-fakery-bacchus",
+    title: "Fake Bread, Real God",
+    eyebrow: "Yena × Caravaggio's Bacchus at an exhibition of fabric bread, 40-second vertical vlog",
+    category: "Character",
+    galleryCategory: "Yena",
+    year: "2026",
+    description: "Yena brings Caravaggio's Bacchus to Lee Jimin's <Fakery> in Seoul, where every loaf is sheer fabric over wire and hollow inside; he reaches for a baguette, learns nothing on the table can be eaten, and cries in front of a piece of toast.",
+    video: "/media/yena-fakery-bacchus.mp4",
+    poster: "/media/yena-fakery-bacchus.jpg",
+    duration: "00:40",
+    role: "Research, concept, casting, camera design, AI video, voice repair, music and bilingual subtitles",
+    tools: ["Seedance 2.5", "Codex image", "Fish Audio", "Suno", "Video2X", "Promptwhat Dual", "FFmpeg"],
+    objective: "Put a fake god in front of fake food: use a real exhibition of wire-and-fabric bread to carry the fact that Caravaggio's Bacchus was never painted as a god at all, but as a Roman street boy in a shirt worn like a toga.",
+    process: [
+      "Verified the show and the painting first — Chapter1's FOUND ARTIST notes on the hollow wire-and-fabric structure, and the Uffizi reading of the sun-reddened face, pale chest and dirt under the nails — then wrote the script so every fact lands in dialogue rather than narration.",
+      "Built a Yena sheet in an autumn trench look and a photoreal Bacchus sheet from the Uffizi painting, and mapped seventeen on-site photographs of the gallery to individual shots so the hanging pieces keep turning exactly as they do in the room.",
+      "Generated the piece as two 20-second Seedance 2.5 vertical runs, then rebuilt one mispronounced line in Yena's own voice and one line in Bacchus's voice with Fish Audio, aligning each word to the original lip movements before upscaling, subtitling and scoring.",
+    ],
+    challenge: "Nobody could touch an artwork, the giant toast had to hang at its real height beside the pair rather than above them, and a comedy about hollow bread had to turn, in the last ten seconds, into something genuinely sad.",
+    outcome: "A 40-second 1080×1920 bilingual master with a ten-photo Instagram set built from the same character sheets.",
+    promptFile: "/prompts/yena-fakery-bacchus.md",
+  },
+  {
     slug: "yena-free-them-from-their-poses",
     title: "Free Them From Their Poses",
     eyebrow: "Yena × masterpieces on break, 20-second cinematic short",
