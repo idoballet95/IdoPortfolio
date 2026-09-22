@@ -24,6 +24,29 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-seven-eleven-bibimbap",
+    title: "The K-Bibimbap That Turned the Art World Upside Down",
+    eyebrow: "Yena × 7-Eleven Jeonju-style beef bibimbap, 30-second museum fantasy commercial",
+    category: "Commercial",
+    galleryCategory: "Ads",
+    year: "2026",
+    description: "After closing time, the aroma of 7-Eleven Jeonju-style beef bibimbap draws figures out of masterpieces and down a grand museum staircase; Yena feeds the crowd while a baffled guard discovers every frame is empty.",
+    video: "/media/yena-seven-eleven-bibimbap.mp4",
+    poster: "/media/yena-seven-eleven-bibimbap.jpg",
+    duration: "00:30",
+    role: "Concept, art direction, Blender previs, asset direction, AI video, voice repair, music, edit and motion typography",
+    tools: ["Seedance 2.5", "Blender", "Codex image", "Fish Audio", "Suno", "FFmpeg"],
+    featured: true,
+    objective: "Turn a convenience-store meal into a museum-scale fantasy while keeping the divided bibimbap tray legible and making the brand and product reveal part of the story.",
+    process: [
+      "Built the grand museum hall and camera blocking in Blender, then prepared character, original-artwork and product sheets for two connected 15-second generations.",
+      "Directed figures to emerge from their own artworks and converge on the product from the staircase and both sides of the hall, with the tray changing from separated ingredients to fully mixed bibimbap only after stirring.",
+      "Rebuilt key dialogue with Fish Audio, mixed a 30-second Suno score, added selective bilingual captions and animated campaign typography, then removed every one-frame transition artifact before delivery.",
+    ],
+    challenge: "Original-painting identity, a moving ensemble cast, product continuity and multilingual dialogue all had to remain readable inside a fast 30-second vertical commercial.",
+    outcome: "A verified 30-second 1080×1920 spec commercial with selective bilingual subtitles, a complete product reveal and frame-clean transitions.",
+  },
+  {
     slug: "yena-vermeer-milkmaid-harin-store",
     title: "Vermeer's Milkmaid in Harin's Store?",
     eyebrow: "Yena × Vermeer's Milkmaid convenience-store comedy",
