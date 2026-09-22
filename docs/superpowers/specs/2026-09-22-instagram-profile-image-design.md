@@ -2,25 +2,25 @@
 
 ## Goal
 
-Create an Instagram profile image by cropping and resizing the current website hero image while preserving every source pixel and leaving the original hero asset unchanged.
+Create an Instagram profile image from the current website hero crop, keeping the woman-and-laptop composition while simplifying the environmental background to clean ivory. Leave the original hero asset unchanged.
 
 ## Source
 
 - Edit target: `public/media/ido-hero-studio-v7-2x.png`
-- Use the exact character appearance already rendered in this hero asset. Do not regenerate or retouch it.
+- Use the exact character appearance and laptop-obscured pose already rendered in this hero asset as the visual reference.
 
 ## Composition
 
 - Output: 1080×1080 PNG.
-- Crop a 1400×1400 square from the source at crop offset Y=220, X=1700, then resize it to 1080×1080.
-- Keep the woman and laptop exactly as they appear in the hero image, centered for Instagram's circular display mask.
-- Do not remove, add, reconstruct, or repaint any subject, prop, background detail, text, logo, or border.
+- Start from the approved 1400×1400 hero crop at crop offset Y=220, X=1700, then deliver at 1080×1080.
+- Keep the woman, laptop, desk and chair composition visually unchanged and centered for Instagram's circular display mask.
+- Replace the environmental background with a seamless warm ivory backdrop. Remove the blue wall shape, trophy, shelf, tactics board, football and other background decor.
 
 ## Identity constraints
 
-- No generative image editing.
-- No retouching, reconstruction, inpainting, outpainting, or identity reinterpretation.
-- Only deterministic crop and resize operations are allowed.
+- Change only the background; preserve the character's face, hair, headband, braid, expression, pose, clothing and proportions.
+- Preserve the laptop, desk and chair placement and their visible details.
+- No identity reinterpretation, added objects, text, watermark or border.
 
 ## Delivery
 
