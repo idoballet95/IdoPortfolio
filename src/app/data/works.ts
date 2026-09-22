@@ -24,6 +24,28 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-vermeer-milkmaid-harin-store",
+    title: "Vermeer's Milkmaid in Harin's Store?",
+    eyebrow: "Yena × Vermeer's Milkmaid convenience-store comedy",
+    category: "Character",
+    galleryCategory: "Yena",
+    year: "2026",
+    description: "Vermeer's Milkmaid appears in Harin's convenience store, pours packaged milk into her bowl, discovers banana milk and leaves Yena with a bill she never expected.",
+    video: "/media/yena-vermeer-milkmaid-harin-store.mp4",
+    poster: "/media/yena-vermeer-milkmaid-harin-store.jpg",
+    duration: "00:20",
+    role: "Concept, character and camera direction, AI video, voice repair, music mix, bilingual subtitles and Instagram delivery",
+    tools: ["Seedance 2.5", "Codex image", "Fish Audio", "Suno", "FFmpeg"],
+    objective: "Bring the iconic pouring gesture from Vermeer's Milkmaid into a modern convenience store and turn the collision between seventeenth-century routine and packaged milk into a fast character comedy.",
+    process: [
+      "Built the episode around the Milkmaid's recognizable pouring pose, separating the white-milk aisle from the banana-milk corner so her discovery reads as a clear escalation.",
+      "Directed Yena, the Milkmaid and Harin through a compact store sequence while maintaining prop ownership, spill geography and the Milkmaid's period silhouette.",
+      "Repaired the final Yena line from her own reference voice with Fish Audio, synchronized English–Korean captions and mixed a baroque comedy-pop cue beneath the dialogue with automatic ducking.",
+    ],
+    challenge: "The short needed to keep three characters, a milk spill, bowl, cartons and store geography legible while preserving Yena's voice identity and landing the banana-milk bill as the final joke.",
+    outcome: "A 20.042-second 1080×1920 bilingual Yena Instagram master with a dialogue-safe baroque comedy-pop mix.",
+  },
+  {
     slug: "yena-fakery-bacchus",
     title: "Fake Bread, Real God",
     eyebrow: "Yena × Caravaggio's Bacchus at an exhibition of fabric bread, 40-second vertical vlog",
