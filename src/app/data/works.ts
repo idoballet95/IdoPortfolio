@@ -24,6 +24,30 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-the-pearl-deadline",
+    title: "The Pearl Deadline",
+    eyebrow: "Yena × Vermeer's pearl earring, 30-second Delft time-travel comedy",
+    category: "Character",
+    galleryCategory: "Yena",
+    year: "2026",
+    description: "Yena races through 1660s Delft to report the secret of Vermeer's pearl earring before her return window closes, only to trip mid-answer.",
+    video: "/media/yena-the-pearl-deadline.mp4",
+    poster: "/media/yena-the-pearl-deadline.jpg",
+    duration: "00:30",
+    role: "Concept, character and prop direction, AI-video prompt, voice repair, music mix, bilingual subtitles and finishing",
+    tools: ["Seedance 2.5 prompt", "Fish Audio", "Promptwhat Dual", "FFmpeg"],
+    featured: false,
+    objective: "Use a return-window deadline and physical comedy to make a familiar Vermeer painting's tiny earring detail memorable.",
+    process: [
+      "Locked Yena, the fictional painter and sitter, the phone and the three-line CTA paper; archived the final 30-second one-take Seedance 2.5 prompt with Delft street and outdoor time-freeze blocking.",
+      "Staged the phone call, escape into the period street, trip, frozen-camera exploration and paper-only ending as one continuous visual sequence.",
+      "Corrected the pronunciation of earring with Fish Audio, replaced the late original music bed with the supplied second-video soundtrack from the fall onward, then finished the smaller-size English–Korean vlog captions.",
+    ],
+    challenge: "The 30-second piece had to keep the Delft chase, fall, independent freeze-camera move and exact three-line CTA legible without obscuring the final paper.",
+    outcome: "A 30.083-second 1080×1920 bilingual master with the smaller vlog captions, corrected earring audio and a clean paper ending.",
+    promptFile: "/prompts/yena-the-pearl-deadline.md",
+  },
+  {
     slug: "yena-seven-eleven-bibimbap",
     title: "The K-Bibimbap That Turned the Art World Upside Down",
     eyebrow: "Yena × 7-Eleven Jeonju-style beef bibimbap, 30-second museum fantasy commercial",
