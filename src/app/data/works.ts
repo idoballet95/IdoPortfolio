@@ -24,6 +24,29 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-zero-gravity-medusa",
+    title: "Zero Gravity with Medusa",
+    eyebrow: "Yena × Medusa at Yulia Iosilzon’s Zero Gravity exhibition, 39-second gallery vlog",
+    category: "Character",
+    galleryCategory: "Yena",
+    year: "2026",
+    description: "Yena brings Medusa to Yulia Iosilzon’s Zero Gravity in Seoul. A startled child, floating jellyfish forms and two different ancient accounts of Medusa turn a gallery visit into a conversation about who gets to tell her story.",
+    video: "/media/yena-zero-gravity-medusa.mp4",
+    poster: "/media/yena-zero-gravity-medusa.jpg",
+    duration: "00:39",
+    role: "Research, concept, casting, gallery direction, AI video, music mix, bilingual subtitles and edit",
+    tools: ["Codex image", "Suno", "Promptwhat Dual", "CapCut", "FFmpeg"],
+    featured: false,
+    objective: "Let a recognizable mythological figure respond to a real contemporary exhibition while Yena guides a casual, fact-aware gallery visit.",
+    process: [
+      "Mapped the gallery’s hanging jellyfish forms and paintings from exhibition reference photographs, then staged Yena and Medusa’s moving conversation through that space.",
+      "Built the short around a child’s startled reaction, the tentacle-and-snake visual connection, and Medusa’s differing portrayals in Hesiod and Ovid.",
+      "Mixed the supplied Suno track from the first frame, added a Yena watermark and English–Korean vlog captions, then replaced a baked-in rectangular insert with a verified exhibition cutaway.",
+    ],
+    challenge: "The joke, artwork and myth facts had to remain clear in a quick two-person gallery vlog; one generated insert also needed a clean visual repair without altering the artwork.",
+    outcome: "An approved 38.933-second 1080×1920 bilingual gallery vlog with a continuous music bed and corrected exhibition cutaway.",
+  },
+  {
     slug: "yena-the-pearl-deadline",
     title: "The Pearl Deadline",
     eyebrow: "Yena × Vermeer's pearl earring, 30-second Delft time-travel comedy",
