@@ -24,6 +24,29 @@ export interface PortfolioWork {
 
 export const works: PortfolioWork[] = [
   {
+    slug: "yena-olive-young-frida-kahlo",
+    title: "Olive Young with Frida Kahlo",
+    eyebrow: "Yena × Frida Kahlo at Olive Young N Seongsu, 55-second beauty vlog",
+    category: "Character",
+    galleryCategory: "Yena",
+    year: "2026",
+    description: "Yena takes Frida Kahlo shopping at Olive Young in Seongsu. Instead of removing her famous joined brow, Frida reaches for the darkest pencil, then quietly draws one on Yena before the photo booth.",
+    video: "/media/yena-olive-young-frida-kahlo.mp4",
+    poster: "/media/yena-olive-young-frida-kahlo.jpg",
+    duration: "00:55",
+    role: "Research, concept, location redraw, casting, AI video, music mix, trilingual subtitles and edit",
+    tools: ["Codex image", "Higgsfield", "Seedance 2.5", "Suno", "Whisper", "FFmpeg"],
+    featured: false,
+    objective: "Turn a documented detail from Frida Kahlo's cosmetics into a playful present-day K-beauty shopping trip.",
+    process: [
+      "Rebuilt the Olive Young N Seongsu street front and colour-makeup floor from real location references, adding a single staged photo booth for the payoff.",
+      "Anchored the brow joke in the V&A record of a Revlon “Ebony” brow pencil among her belongings, and the closing confession in the Museo Frida Kahlo account of the 1925 accident and bedside mirror.",
+      "Joined three generated takes in order, burned in English–Korean–Simplified Chinese captions from measured speech timing, packaged it in the black Yena Instagram template and mixed the supplied Suno track under the dialogue.",
+    ],
+    challenge: "Three separate generated takes had to read as one continuous outing, with a brow-drawing gag set up early and revealed only in the final photo strip.",
+    outcome: "A 55-second 1080×1920 trilingual vlog in the black Yena template with a ducked Suno music bed.",
+  },
+  {
     slug: "yena-zero-gravity-medusa",
     title: "Zero Gravity with Medusa",
     eyebrow: "Yena × Medusa at Yulia Iosilzon’s Zero Gravity exhibition, 39-second gallery vlog",
